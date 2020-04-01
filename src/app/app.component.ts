@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'remote-workshop';
+  reciveMyTitle(e: string) {
+    console.log(e);
+  }
 }

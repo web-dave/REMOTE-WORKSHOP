@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'hurz-title-box',
@@ -7,7 +7,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TitleBoxComponent implements OnInit {
   @Input() myTitle: string;
+  @Output() myTitleClicked = new EventEmitter<string>();
   constructor() {}
 
   ngOnInit(): void {}
+  sendMyTitle() {
+    this.myTitleClicked.emit(this.myTitle);
+  }
 }

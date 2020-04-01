@@ -2,4 +2,7 @@
 <hurz-books></hurz-books>
 <hurz-info-box></hurz-info-box>
 <router-outlet></router-outlet>
-<hurz-title-box [myTitle]="title"></hurz-title-box>
+<hurz-title-box
+  (myTitleClicked)="reciveMyTitle($event)"
+  [myTitle]="title"
+></hurz-title-box>
