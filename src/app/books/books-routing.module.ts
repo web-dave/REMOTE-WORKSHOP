@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { BookListComponent } from './book-list/book-list.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { BooksComponent } from './books/books.component';
+import { StayHereGuard } from './stay-here.guard';
 
 const routes: Routes = [
   {
@@ -11,7 +12,8 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: BookListComponent
+        component: BookListComponent,
+        canDeactivate: [StayHereGuard]
       },
       {
         path: ':isbn',
