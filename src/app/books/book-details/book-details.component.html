@@ -1,1 +1,10 @@
-<p>book-details works!</p>
+<div *ngIf="$book | async as book">
+  <span>{{ book.title }}</span>
+  <span>{{ book.subtitle }}</span>
+  <span>{{ book.isbn }}</span>
+  <span>{{ book.abstract }}</span>
+  <span>{{ book.numPages }}</span>
+  <span>{{ book.author }}</span>
+  <hr />
+  <img [src]="book.cover" width="100" alt="" />
+</div>

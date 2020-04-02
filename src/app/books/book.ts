@@ -9,5 +9,5 @@ export interface IBook {
     name: string;
     url: string;
   };
-  cover: string;
+  cover?: string;
 }
