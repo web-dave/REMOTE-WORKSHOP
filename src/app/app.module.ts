@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BooksModule } from './books/books.module';
 import { AboutModule } from './about/about.module';
 import { NavigationComponent } from './navigation/navigation.component';
 import { InfoBoxComponent } from './info-box/info-box.component';
@@ -19,13 +18,7 @@ import { TitleBoxComponent } from './title-box/title-box.component';
     MouseCursorComponent,
     TitleBoxComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BooksModule,
-    AboutModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, AboutModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
 })
