@@ -1,0 +1,10 @@
+<h3>Edit Book</h3>
+<form *ngIf="$book | async as book" #form="ngForm">
+  <input
+    type="text"
+    required
+    [(ngModel)]="book.title"
+    name="title"
+    #title="ngModel"
+  />
+</form>
