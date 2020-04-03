@@ -19,4 +19,7 @@ export class BookEditComponent implements OnInit {
       mergeMap(params => this.service.getBook(params.isbn))
     );
   }
+  save(book) {
+    this.service.updateBook(book).subscribe();
+  }
 }
