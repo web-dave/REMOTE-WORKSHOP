@@ -1,0 +1,15 @@
+<table>
+  <thead>
+    <th>No.</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let user of users; let i = index; let ev = even; let od = odd">
+      <td>{{ i + 1 }}</td>
+      <td>{{ user.firstname }}</td>
+      <td>{{ user.lastname }}</td>
+    </tr>
+  </tbody>
+</table>
