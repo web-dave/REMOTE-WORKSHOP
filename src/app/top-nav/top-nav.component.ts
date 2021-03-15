@@ -3,14 +3,13 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'ng-ws-top-nav',
   templateUrl: './top-nav.component.html',
-  styleUrls: ['./top-nav.component.scss']
+  styleUrls: ['./top-nav.component.scss'],
 })
 export class TopNavComponent implements OnInit {
-user: any
-  constructor() { }
+  user: any;
+  constructor() {}
 
   ngOnInit(): void {
-   setTimeout(()=>this.user = {name: 'Hurbelwonz'},1600)
+    setTimeout(() => (this.user = { name: 'Hurbelwonz' }), 2500);
   }
-
 }

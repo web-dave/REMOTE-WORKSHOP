@@ -1,4 +1,6 @@
 <ul>
-  <li><a class="active" >Users</a></li>
-  <li><a>{{user?.name}}</a></li>
+  <li><a class="active">Users</a></li>
+  <li *ngIf="user">
+    <a>{{ user.name }}</a>
+  </li>
 </ul>

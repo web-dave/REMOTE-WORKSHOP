@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'ng-ws-in-out',
@@ -7,16 +7,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class InOutComponent implements OnInit {
   @Input() isHidden = false;
+  @Output() coords = new EventEmitter<{ x: number; y: number }>();
   foo: 'bar' | 'baz' = 'bar';
 
-  x = 0;
-  y = 0;
   constructor() {}
 
   ngOnInit(): void {}
 
   mouseMovement(event: MouseEvent) {
-    this.x = event.x;
-    this.y = event.y;
+    this.coords.emit({ x: event.x, y: event.y });
   }
 }
