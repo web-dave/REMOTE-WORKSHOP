@@ -1,1 +1,8 @@
-<p>in-out works!</p>
+<div style="height: 400px; width: 400px; border: 1px solid" (mousemove)="mouseMovement($event)">
+<pre>
+    x: {{x}}
+    y: {{y}}
+</pre>
+</div>
+<button (click)="isHidden=!isHidden">{{isHidden?'Show':'Hide'}}</button>
+<h1 [hidden]="isHidden">Tach</h1>
