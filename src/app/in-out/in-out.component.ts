@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'ng-ws-in-out',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./in-out.component.scss'],
 })
 export class InOutComponent implements OnInit {
-  isHidden = false;
+  @Input() isHidden = false;
   foo: 'bar' | 'baz' = 'bar';
 
   x = 0;
@@ -16,7 +16,7 @@ export class InOutComponent implements OnInit {
   ngOnInit(): void {}
 
   mouseMovement(event: MouseEvent) {
-    this.x = event.x
-    this.y = event.y
+    this.x = event.x;
+    this.y = event.y;
   }
 }
