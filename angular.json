@@ -12,7 +12,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "hurz",
+      "prefix": "ng-sw",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",

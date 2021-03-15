@@ -1,7 +1,0 @@
-<p>book-list works!</p>
-<a routerLink="new">NEW</a>
-<ul>
-  <li *ngFor="let book of $books | async">
-    <a [routerLink]="[book.isbn]">{{ book.title }}</a>
-  </li>
-</ul>
