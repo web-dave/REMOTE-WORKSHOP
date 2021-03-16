@@ -1,5 +1,6 @@
 <ul>
-  <li><a class="active">Users</a></li>
+  <li><a class="active" [routerLink]="'users'">Users</a></li>
+  <li><a routerLink="about">About</a></li>
   <li *ngIf="user">
     <a>{{ user.name }}</a>
   </li>

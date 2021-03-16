@@ -7,16 +7,18 @@ import { AppComponent } from './app.component';
 import { UsersModule } from './users/users.module';
 import { AboutModule } from './about/about.module';
 import { TopNavComponent } from './top-nav/top-nav.component';
-import { InOutComponent } from './in-out/in-out.component';
+import { InOutComponent } from './users/in-out/out-in.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TopNavComponent,
-    InOutComponent,
+  declarations: [AppComponent, TopNavComponent, InOutComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    UsersModule,
+    AboutModule,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, UsersModule, AboutModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

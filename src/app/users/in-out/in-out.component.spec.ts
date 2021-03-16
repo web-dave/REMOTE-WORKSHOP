@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InOutComponent } from './in-out.component';
+import { InOutComponent } from './out-in.component';
 
 describe('InOutComponent', () => {
   let component: InOutComponent;
@@ -8,9 +8,8 @@ describe('InOutComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InOutComponent ]
-    })
-    .compileComponents();
+      declarations: [InOutComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

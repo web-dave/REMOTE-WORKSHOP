@@ -7,7 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersComponent implements OnInit {
   show = true;
+  i = 0;
   constructor() {}
 
-  ngOnInit(): void {}
+  karl(n: number) {
+    console.log('karl');
+    return 'I ist: ' + n;
+  }
+
+  ngOnInit(): void {
+    setInterval(() => (this.i = 81), 1500);
+  }
 }
