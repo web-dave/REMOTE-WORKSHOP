@@ -1,2 +1,3 @@
 <h1>Users!!!!!</h1>
-<ng-ws-user-list></ng-ws-user-list>
+<button (click)="show = !show">leave</button>
+<ng-ws-user-list *ngIf="show"></ng-ws-user-list>

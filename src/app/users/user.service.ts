@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { IUser } from './user.interface';
 
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -27,8 +28,11 @@ export class UserService {
       rights: [],
     },
   ];
-  constructor() {}
+  constructor(private http: HttpClient) {}
   getUsers(): Observable<IUser[]> {
-    return of(this.users);
+    // return of(this.users);
+    return this.http.get<IUser[]>(
+      'http://fms.dresearch-fe.de:8080/api/free/user'
+    );
   }
 }
