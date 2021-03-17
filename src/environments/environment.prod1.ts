@@ -4,5 +4,5 @@ export const environment = {
 
 export const endpoints = {
   ws: 'ws://fms.dresearch-fe.de:8080/webSocket',
-  api: 'http://fms.dresearch-fe.de:8080/api/auth/user',
+  api: 'http://fms.dresearch-fe.de:8080/api/free/user',
 };

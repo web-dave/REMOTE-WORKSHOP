@@ -28,7 +28,7 @@
             "scripts": []
           },
           "configurations": {
-            "production": {
+           "production": {
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -55,7 +55,35 @@
                   "maximumError": "10kb"
                 }
               ]
-            }
+            }, 
+           "production1": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod1.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            } 
           }
         },
         "serve": {
@@ -66,6 +94,9 @@
           "configurations": {
             "production": {
               "browserTarget": "remote-workshop:build:production"
+            },
+            "production1": {
+              "browserTarget": "remote-workshop:build:production1"
             }
           }
         },
@@ -107,6 +138,9 @@
           "configurations": {
             "production": {
               "devServerTarget": "remote-workshop:serve:production"
+            },
+            "production1": {
+              "devServerTarget": "remote-workshop:serve:production1"
             }
           }
         }

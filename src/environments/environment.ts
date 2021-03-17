@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+};
+
+export const endpoints = {
+  ws: 'ws://fms.dresearch-fe.de:8080/webSocket',
+  api: 'http://fms.dresearch-fe.de:8080/api/free/user',
 };
 
 /*

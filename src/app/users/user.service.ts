@@ -5,6 +5,7 @@ import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 import { WebSocketSubject } from 'rxjs/webSocket';
 import { HttpClient } from '@angular/common/http';
 import { map, takeUntil, tap } from 'rxjs/operators';
+import { endpoints } from 'src/environments/environment';
 
 interface IMsg {
   message: 'user_deleted' | 'user_created' | 'user_changed' | 'Hallo';
@@ -18,9 +19,7 @@ export class UserService implements OnDestroy {
   private users: IUser[] = [];
   private end$ = new Subject();
   public users$ = new BehaviorSubject<IUser[]>(this.users);
-  public userSocket$$ = new WebSocketSubject<IMsg | string>(
-    'ws://fms.dresearch-fe.de:8080/webSocket'
-  );
+  public userSocket$$ = new WebSocketSubject<IMsg | string>(endpoints.ws);
   constructor(private http: HttpClient) {
     this.userSocket$$.pipe(takeUntil(this.end$)).subscribe((data: IMsg) => {
       switch (data.message) {
@@ -68,9 +67,8 @@ export class UserService implements OnDestroy {
   }
 
   getUsers(): Observable<IUser[]> {
-    return this.http.get<IUser[]>(
-      'http://fms.dresearch-fe.de:8080/api/auth/user'
-    );
+    //lkfjdslkdj
+    return this.http.get<IUser[]>(endpoints.api);
   }
 
   getUser(userId: number): Observable<IUser> {
@@ -79,16 +77,10 @@ export class UserService implements OnDestroy {
     );
   }
   updateOrSaveUser(user: IUser): Observable<IUser> {
-    let request = this.http.put<IUser>(
-      'http://fms.dresearch-fe.de:8080/api/free/user',
-      user
-    );
+    let request = this.http.put<IUser>(endpoints.api, user);
     if (user.id === -1) {
       delete user.id;
-      request = this.http.post<IUser>(
-        'http://fms.dresearch-fe.de:8080/api/free/user',
-        user
-      );
+      request = this.http.post<IUser>(endpoints.api, user);
     }
     return request;
   }
