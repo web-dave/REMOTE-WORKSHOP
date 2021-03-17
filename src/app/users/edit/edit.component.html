@@ -1,5 +1,5 @@
 <!-- <pre>{{ user | json }}</pre> -->
-<form #userForm="ngForm" *ngIf="user; else fallback">
+<!-- <form #userForm="ngForm" *ngIf="user; else fallback">
   <label for="firstname">Firstname</label>
   <input type="text" name="firstname" [(ngModel)]="user.firstname" required />
   <br />
@@ -15,6 +15,40 @@
   <label for="enabled">Enabled</label>
   <input type="checkbox" name="enabled" [(ngModel)]="user.enabled" required />
   <pre>{{ userForm.value | json }}</pre>
+</form>
+<hr /> -->
+<form [formGroup]="uForm" *ngIf="uForm; else fallback" (ngSubmit)="save()">
+  <label for="firstname">Firstname</label>
+  <input type="text" formControlName="firstname" /><span
+    *ngIf="uForm.get('firstname').invalid"
+    >⚠️</span
+  >
+  <br />
+  <label for="lastname">Lastname</label>
+  <input type="text" formControlName="lastname" /><span
+    *ngIf="uForm.get('lastname').invalid"
+    >⚠️</span
+  >
+  <br />
+  <label for="account">Account</label>
+  <input type="text" formControlName="account" /><span
+    *ngIf="uForm.get('account').invalid"
+    >⚠️</span
+  >
+  <br />
+  <label for="password">Password 🤫</label>
+  <input type="text" formControlName="password" /><span
+    *ngIf="uForm.get('password').invalid"
+    >⚠️</span
+  >
+  <br />
+  <label for="enabled">Enabled</label>
+  <input type="checkbox" formControlName="enabled" /><span
+    *ngIf="uForm.get('enabled').invalid"
+    >⚠️</span
+  >
+  <pre>{{ uForm.value | json }}</pre>
+  <button type="submit" [disabled]="!uForm.valid">Save</button>
 </form>
 
 <ng-template #fallback> Looking for User!.... </ng-template>

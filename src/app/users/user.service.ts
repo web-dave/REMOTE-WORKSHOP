@@ -40,4 +40,10 @@ export class UserService {
       'http://fms.dresearch-fe.de:8080/api/free/user/' + userId
     );
   }
+  updateUser(user: IUser): Observable<IUser> {
+    return this.http.put<IUser>(
+      'http://fms.dresearch-fe.de:8080/api/free/user',
+      user
+    );
+  }
 }
