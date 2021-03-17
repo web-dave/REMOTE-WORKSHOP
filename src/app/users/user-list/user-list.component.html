@@ -3,6 +3,7 @@
     <th>No.</th>
     <th>Firstname</th>
     <th>Lastname</th>
+    <th>Edit</th>
   </thead>
 
   <tbody>
@@ -14,9 +15,10 @@
         let od = odd
       "
     >
-      <td>{{ i + 1 }}</td>
+      <td>{{ user.id }}</td>
       <td>{{ user.firstname }}</td>
       <td>{{ user.lastname }}</td>
+      <td><a [routerLink]="[user.id, 'edit']">EDIT</a></td>
     </tr>
   </tbody>
 </table>
