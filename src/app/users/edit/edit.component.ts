@@ -47,7 +47,7 @@ export class EditComponent implements OnInit {
       ...this.uForm.value,
     };
     this.service.updateOrSaveUser(editUser).subscribe(() => {
-      this.router.navigate(['/users'], { relativeTo: this.route });
+      this.router.navigate(['../..'], { relativeTo: this.route });
     });
     console.log(this.uForm.value, this.user, editUser);
   }
