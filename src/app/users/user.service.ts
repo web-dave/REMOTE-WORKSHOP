@@ -35,4 +35,9 @@ export class UserService {
       'http://fms.dresearch-fe.de:8080/api/free/user'
     );
   }
+  getUser(userId: string): Observable<IUser> {
+    return this.http.get<IUser>(
+      'http://fms.dresearch-fe.de:8080/api/free/user/' + userId
+    );
+  }
 }

@@ -5,14 +5,12 @@ import { UsersRoutingModule } from './users-routing.module';
 import { UsersComponent } from './users/users.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { KarlPipe } from './karl.pipe';
-
+import { EditComponent } from './edit/edit.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [UsersComponent, UserListComponent, KarlPipe],
-  imports: [
-    CommonModule,
-    UsersRoutingModule
-  ],
-  exports: [UsersComponent]
+  declarations: [UsersComponent, UserListComponent, KarlPipe, EditComponent],
+  imports: [CommonModule, UsersRoutingModule, FormsModule],
+  exports: [UsersComponent],
 })
-export class UsersModule { }
+export class UsersModule {}

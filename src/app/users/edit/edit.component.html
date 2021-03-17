@@ -1,0 +1,20 @@
+<!-- <pre>{{ user | json }}</pre> -->
+<form #userForm="ngForm" *ngIf="user; else fallback">
+  <label for="firstname">Firstname</label>
+  <input type="text" name="firstname" [(ngModel)]="user.firstname" required />
+  <br />
+  <label for="lastname">Lastname</label>
+  <input type="text" name="lastname" [(ngModel)]="user.lastname" required />
+  <br />
+  <label for="account">Account</label>
+  <input type="text" name="account" [(ngModel)]="user.account" required />
+  <br />
+  <label for="password">Password 🤫</label>
+  <input type="text" name="password" [(ngModel)]="user.password" required />
+  <br />
+  <label for="enabled">Enabled</label>
+  <input type="checkbox" name="enabled" [(ngModel)]="user.enabled" required />
+  <pre>{{ userForm.value | json }}</pre>
+</form>
+
+<ng-template #fallback> Looking for User!.... </ng-template>
