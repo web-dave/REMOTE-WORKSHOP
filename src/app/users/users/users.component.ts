@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'ng-sw-users',
@@ -8,14 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class UsersComponent implements OnInit {
   show = true;
   i = 0;
-  constructor() {}
-
-  karl(n: number) {
-    console.log('karl');
-    return 'I ist: ' + n;
-  }
+  constructor(private service: UserService) {}
 
   ngOnInit(): void {
-    setInterval(() => (this.i = 81), 1500);
+    this.service.initUserList();
   }
 }
