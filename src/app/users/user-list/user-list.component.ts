@@ -17,9 +17,7 @@ export class UserListComponent implements OnInit {
   ngOnInit(): void {
     this.users$ = this.service.users$;
   }
-  readUsers = (u) => {
-    console.log(this.i, u);
-  };
+  readUsers = (u) => {};
 
   sendMsg(msg: string) {
     this.service.userSocket$$.next(msg);

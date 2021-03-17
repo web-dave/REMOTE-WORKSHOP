@@ -69,13 +69,12 @@ export class UserService implements OnDestroy {
 
   getUsers(): Observable<IUser[]> {
     return this.http.get<IUser[]>(
-      'http://fms.dresearch-fe.de:8080/api/free/user'
+      'http://fms.dresearch-fe.de:8080/api/auth/user'
     );
   }
 
   getUser(userId: number): Observable<IUser> {
     return this.users$.pipe(
-      tap(console.log),
       map((users: IUser[]) => users.filter((u) => u.id === userId)[0] || null)
     );
   }
