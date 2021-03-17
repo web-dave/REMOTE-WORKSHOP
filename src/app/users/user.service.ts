@@ -18,11 +18,11 @@ export class UserService implements OnDestroy {
   private users: IUser[] = [];
   private end$ = new Subject();
   public users$ = new BehaviorSubject<IUser[]>(this.users);
-  private userSocket$$ = new WebSocketSubject<IMsg>(
+  public userSocket$$ = new WebSocketSubject<IMsg | string>(
     'ws://fms.dresearch-fe.de:8080/webSocket'
   );
   constructor(private http: HttpClient) {
-    this.userSocket$$.pipe(takeUntil(this.end$)).subscribe((data) => {
+    this.userSocket$$.pipe(takeUntil(this.end$)).subscribe((data: IMsg) => {
       switch (data.message) {
         case 'user_changed':
           this.changeUser(data.value as IUser);

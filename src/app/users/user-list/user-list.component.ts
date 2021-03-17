@@ -20,4 +20,8 @@ export class UserListComponent implements OnInit {
   readUsers = (u) => {
     console.log(this.i, u);
   };
+
+  sendMsg(msg: string) {
+    this.service.userSocket$$.next(msg);
+  }
 }
