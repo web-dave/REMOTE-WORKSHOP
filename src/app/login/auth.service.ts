@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { endpoints } from 'src/environments/environment';
 
 const AUTH_API = 'http://fms.dresearch-fe.de:8080/login';
 
@@ -8,7 +9,9 @@ const TOKEN_KEY = 'auth-token';
 const USER_KEY = 'auth-user';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  headers: new HttpHeaders({
+    'Content-Type': 'application/x-www-form-urlencoded',
+  }),
 };
 
 @Injectable({
@@ -19,11 +22,8 @@ export class AuthService {
 
   login(username: string, password: string): Observable<any> {
     return this.http.post(
-      AUTH_API,
-      {
-        username,
-        password,
-      },
+      endpoints.auth,
+      'username=' + username + '&password=' + password,
       httpOptions
     );
   }

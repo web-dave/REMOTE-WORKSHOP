@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 
 @Component({
@@ -8,15 +9,15 @@ import { AuthService } from './auth.service';
 })
 export class LoginComponent implements OnInit {
   form: any = {
-    username: null,
-    password: null,
+    username: 'max',
+    password: 'first3',
   };
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     if (this.authService.getToken()) {
@@ -36,7 +37,7 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.authService.getUser().roles;
-        this.reloadPage();
+        this.router.navigate(['/users']);
       },
       (err) => {
         this.errorMessage = err.error.message;

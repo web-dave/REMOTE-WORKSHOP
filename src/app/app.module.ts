@@ -9,6 +9,7 @@ import { TopNavComponent } from './top-nav/top-nav.component';
 import { InOutComponent } from './users/in-out/out-in.component';
 import { IntInterceptorProviders } from './int.interceptor';
 import { LoginModule } from './login/login.module';
+import { authInterceptorProviders } from './login/auth.interceptor';
 
 @NgModule({
   declarations: [AppComponent, TopNavComponent, InOutComponent],
@@ -19,7 +20,7 @@ import { LoginModule } from './login/login.module';
     AboutModule,
     LoginModule,
   ],
-  providers: [IntInterceptorProviders],
+  providers: [IntInterceptorProviders, authInterceptorProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
