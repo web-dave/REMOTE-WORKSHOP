@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/login/auth.service';
 import { UserService } from '../user.service';
 
 @Component({
@@ -9,9 +10,12 @@ import { UserService } from '../user.service';
 export class UsersComponent implements OnInit {
   show = true;
   i = 0;
-  constructor(private service: UserService) {}
+  constructor(private service: UserService, private auth: AuthService) {}
 
   ngOnInit(): void {
     this.service.initUserList();
+  }
+  logout() {
+    this.auth.logout();
   }
 }

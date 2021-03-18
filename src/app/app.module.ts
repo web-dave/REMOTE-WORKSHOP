@@ -20,7 +20,7 @@ import { authInterceptorProviders } from './login/auth.interceptor';
     AboutModule,
     LoginModule,
   ],
-  providers: [IntInterceptorProviders, authInterceptorProviders],
+  providers: [IntInterceptorProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

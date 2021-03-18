@@ -20,14 +20,10 @@ export class IntInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     let authReq = req;
-    console.log(authReq);
-    console.log(next);
+    console.log(document.cookie);
     return next.handle(authReq).pipe(
-      tap(console.log),
-
       catchError((error: HttpErrorResponse) => {
-        console.log(error);
-        if (error.status === 0) {
+        if (error.status === 401 || error.status === 0) {
           this.router.navigate(['login']);
         }
         return throwError('ALARM');

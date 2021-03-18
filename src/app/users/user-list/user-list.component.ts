@@ -20,6 +20,6 @@ export class UserListComponent implements OnInit {
   readUsers = (u) => {};
 
   sendMsg(msg: string) {
-    this.service.userSocket$$.next(msg);
+    // this.service.userSocket$$.next(msg);
   }
 }

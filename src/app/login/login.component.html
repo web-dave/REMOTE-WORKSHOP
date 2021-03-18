@@ -1,9 +1,4 @@
-<form
-  *ngIf="!isLoggedIn"
-  name="form"
-  (ngSubmit)="f.form.valid && onSubmit()"
-  #f="ngForm"
->
+<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
   <div>
     <label for="username">Username</label>
     <input
@@ -41,3 +36,4 @@
     </div>
   </div>
 </form>
+<button (click)="logout()">LogOut</button>

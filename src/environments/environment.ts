@@ -8,7 +8,7 @@ export const environment = {
 
 export const endpoints = {
   ws: 'ws://217.228.63.99:18081/webSocket',
-  api: 'http://217.228.63.99:18081/api/free/user',
+  api: 'http://217.228.63.99:18081/api/auth/user',
   auth: 'http://217.228.63.99:18081/login',
 };
 // api: 'http://fms.dresearch-fe.de:8080/api/auth/user',

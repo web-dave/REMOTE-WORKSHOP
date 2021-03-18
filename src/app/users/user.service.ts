@@ -3,7 +3,7 @@ import { IUser } from './user.interface';
 
 import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 import { WebSocketSubject } from 'rxjs/webSocket';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, takeUntil, tap } from 'rxjs/operators';
 import { endpoints } from 'src/environments/environment';
 
@@ -19,21 +19,21 @@ export class UserService implements OnDestroy {
   private users: IUser[] = [];
   private end$ = new Subject();
   public users$ = new BehaviorSubject<IUser[]>(this.users);
-  public userSocket$$ = new WebSocketSubject<IMsg | string>(endpoints.ws);
+  // public userSocket$$ = new WebSocketSubject<IMsg | string>(endpoints.ws);
   constructor(private http: HttpClient) {
-    this.userSocket$$.pipe(takeUntil(this.end$)).subscribe((data: IMsg) => {
-      switch (data.message) {
-        case 'user_changed':
-          this.changeUser(data.value as IUser);
-          break;
-        case 'user_created':
-          this.addUser(data.value as IUser);
-          break;
-        case 'user_deleted':
-          this.removeUser(data.value as number);
-          break;
-      }
-    });
+    // this.userSocket$$.pipe(takeUntil(this.end$)).subscribe((data: IMsg) => {
+    //   switch (data.message) {
+    //     case 'user_changed':
+    //       this.changeUser(data.value as IUser);
+    //       break;
+    //     case 'user_created':
+    //       this.addUser(data.value as IUser);
+    //       break;
+    //     case 'user_deleted':
+    //       this.removeUser(data.value as number);
+    //       break;
+    //   }
+    // });
   }
   removeUser(id: number) {
     this.users = this.users.filter((u) => u.id !== id);
@@ -67,8 +67,10 @@ export class UserService implements OnDestroy {
   }
 
   getUsers(): Observable<IUser[]> {
-    //lkfjdslkdj
-    return this.http.get<IUser[]>(endpoints.api);
+    return this.http.get<IUser[]>(endpoints.api, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      withCredentials: true,
+    });
   }
 
   getUser(userId: number): Observable<IUser> {
