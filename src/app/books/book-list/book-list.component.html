@@ -1,17 +1,22 @@
 <p>book-list works!</p>
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+<ul>
+  <strong>
+    {{ books }}
+  </strong>
+  <ng-sw-book-preview
+    *ngFor="let b of books$ | async"
+    [book]="b"
+    (bookselected)="bookWasSelected($event)"
+  ></ng-sw-book-preview>
+
+  <hr />
+
+  <ng-sw-book-preview
+    [book]="books$ | async"
+    (bookselected)="bookWasSelected($event)"
+  ></ng-sw-book-preview>
+</ul>
+
+<ng-template let-data="books" #marie>
+  <h1>{{ data }}</h1>
+</ng-template>
