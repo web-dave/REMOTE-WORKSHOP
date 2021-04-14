@@ -11,14 +11,17 @@ import { BookNewComponent } from './book-new/book-new.component';
 import { StoreModule } from '@ngrx/store';
 import { booksStoreName } from './+state/books.store';
 import { booksReducer } from './+state/books.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { BookEffects } from './+state/books.actions';
 
 @NgModule({
   imports: [
-    CommonModule, 
-    BooksRoutingModule, 
-    FormsModule, 
+    CommonModule,
+    BooksRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     StoreModule.forFeature(booksStoreName, booksReducer),
+    EffectsModule.forFeature([BookEffects]),
     // StoreModule.forFeature({booksStoreName: booksReducer}),
   ],
   declarations: [
@@ -26,7 +29,7 @@ import { booksReducer } from './+state/books.reducer';
     BookListComponent,
     BookDetailsComponent,
     BookEditComponent,
-    BookNewComponent
+    BookNewComponent,
   ],
   exports: [BooksComponent, BookListComponent],
 })

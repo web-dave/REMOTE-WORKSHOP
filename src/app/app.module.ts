@@ -15,18 +15,22 @@ import { StoreModule } from '@ngrx/store';
 
 // Add:
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   imports: [
-    BrowserModule, 
-    AppRoutingModule, 
-    AboutModule, 
+    BrowserModule,
+    AppRoutingModule,
+    AboutModule,
     HttpClientModule,
     StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
 
-    // Add: 
-    StoreDevtoolsModule.instrument({ maxAge: 100 })
-
+    // Add:
+    environment.production
+      ? []
+      : StoreDevtoolsModule.instrument({ maxAge: 100 }),
   ],
   declarations: [
     AppComponent,
@@ -36,6 +40,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     TitleBoxComponent,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
