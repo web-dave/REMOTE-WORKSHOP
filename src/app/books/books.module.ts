@@ -8,8 +8,19 @@ import { BookListComponent } from './book-list/book-list.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { BookEditComponent } from './book-edit/book-edit.component';
 import { BookNewComponent } from './book-new/book-new.component';
+import { StoreModule } from '@ngrx/store';
+import { booksStoreName } from './+state/books.store';
+import { booksReducer } from './+state/books.reducer';
 
 @NgModule({
+  imports: [
+    CommonModule, 
+    BooksRoutingModule, 
+    FormsModule, 
+    ReactiveFormsModule,
+    StoreModule.forFeature(booksStoreName, booksReducer),
+    // StoreModule.forFeature({booksStoreName: booksReducer}),
+  ],
   declarations: [
     BooksComponent,
     BookListComponent,
@@ -18,6 +29,5 @@ import { BookNewComponent } from './book-new/book-new.component';
     BookNewComponent
   ],
   exports: [BooksComponent, BookListComponent],
-  imports: [CommonModule, BooksRoutingModule, FormsModule, ReactiveFormsModule]
 })
 export class BooksModule {}

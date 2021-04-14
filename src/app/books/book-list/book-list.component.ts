@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BooksService } from '../books.service';
 import { IBook } from '../book';
 import { Subscription, Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { LoadBooks } from '../+state/books.actions';
 
 @Component({
   selector: 'hurz-book-list',
@@ -9,10 +11,20 @@ import { Subscription, Observable } from 'rxjs';
   styleUrls: ['./book-list.component.scss']
 })
 export class BookListComponent implements OnInit {
-  $books: Observable<IBook[]>;
-  constructor(private service: BooksService) {}
+  
+  // Add:
+  $books: Observable<IBook[]> = 
+    this.store.select(appState => appState['books'].books);
+  
+  constructor(
+    // Add:
+    private store: Store<{}>,
+    private service: BooksService) {}
 
   ngOnInit(): void {
-    this.$books = this.service.getBooks();
+    // Update:
+    this.service.getBooks().subscribe(books => {
+      this.store.dispatch(new LoadBooks(books));
+    })
   }
 }
