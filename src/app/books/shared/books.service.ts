@@ -15,4 +15,9 @@ export class BooksService {
     return this.http.get<IBook[]>(this.url);
     //.pipe(map((arr) => arr.map((book) => book.title)));
   }
+
+  getBook(isbn: string): Observable<IBook> {
+    return this.http.get<IBook>(this.url + '/' + isbn);
+    //.pipe(map((arr) => arr.map((book) => book.title)));
+  }
 }

@@ -1,7 +1,7 @@
 <ul *ngIf="book" class="card">
   <li>{{ book.title }}</li>
   <li>
-    {{ book.isbn }}
+    {{ book.numPages }}
     <button (click)="selectThisBook()" class="btn btn-info">
       show me more
     </button>
