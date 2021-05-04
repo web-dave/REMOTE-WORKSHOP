@@ -4,19 +4,13 @@ import { CommonModule } from '@angular/common';
 import { BooksRoutingModule } from './books-routing.module';
 import { BooksComponent } from './books.component';
 import { BookListComponent } from './book-list/book-list.component';
-
+import { BookPreviewComponent } from './book-preview/book-preview.component';
+import { BookService } from './book.service';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 @NgModule({
-  declarations: [
-    BooksComponent,
-    BookListComponent
-  ],
-  imports: [
-    CommonModule,
-    BooksRoutingModule
-  ],
-  exports: [
-    BooksComponent
-  ]
+  declarations: [BooksComponent, BookListComponent, BookPreviewComponent, BookDetailsComponent],
+  imports: [CommonModule, BooksRoutingModule],
+  exports: [BooksComponent],
 })
-export class BooksModule { }
+export class BooksModule {}

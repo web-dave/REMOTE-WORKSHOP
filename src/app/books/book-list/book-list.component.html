@@ -1,6 +1,11 @@
 <h3>Book List</h3>
 <ul *ngIf="books">
   <li *ngFor="let book of books; let i = index">{{ i }} {{ book.title }}</li>
+  <zeiss-book-preview
+    *ngFor="let b of books"
+    [book]="b"
+    (bookSelected)="goToBook($event)"
+  ></zeiss-book-preview>
   <!-- <li *ngFor="let book of books; let i = index">
     <h5 *ngFor="let key of getKeys(book)">{{ key }}:{{ book[key] }}</h5>
   </li> -->

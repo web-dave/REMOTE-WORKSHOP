@@ -1,0 +1,7 @@
+<ul *ngIf="book">
+  <li>{{ book.title }}</li>
+  <li>
+    {{ book.isbn }}
+    <button (click)="select()" class="btn btn-info">show me more</button>
+  </li>
+</ul>
