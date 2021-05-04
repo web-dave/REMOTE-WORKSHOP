@@ -1,6 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { BookService } from '../book.service';
 import { IBook } from '../ibook.interface';
@@ -10,30 +10,24 @@ import { IBook } from '../ibook.interface';
   templateUrl: './book-details.component.html',
   styleUrls: ['./book-details.component.scss'],
 })
-export class BookDetailsComponent implements OnInit, OnDestroy {
-  book: IBook;
-  sub = new Subscription();
+export class BookDetailsComponent implements OnInit {
+  book$: Observable<IBook>;
+  i = 0;
   constructor(private route: ActivatedRoute, private service: BookService) {}
-
+  getI(value: number, arg: string = 'S.') {
+    console.log('getI', value);
+    return `${arg}: ${value}`;
+  }
   ngOnInit(): void {
-    // this.sub.add(
-    //   this.service
-    //     .getBook(this.route.snapshot.paramMap.get('isbn'))
-    //     .subscribe(console.log)
-    // );
-
-    // this.sub.add(
-    //   this.route.params.subscribe((data) => {
-    //     this.sub.add(this.service.getBook(data.isbn).subscribe(console.log));
-    //   })
-    // );
-    this.sub.add(
-      this.route.params
-        .pipe(switchMap((data) => this.service.getBook(data.isbn)))
-        .subscribe((data) => (this.book = data))
+    setInterval(() => {
+      this.i = 1;
+    }, 1500);
+    this.book$ = this.route.params.pipe(
+      switchMap((data) => this.service.getBook(data.isbn))
     );
   }
-  ngOnDestroy() {
-    this.sub.unsubscribe();
+
+  add(a, b) {
+    return a + b;
   }
 }
