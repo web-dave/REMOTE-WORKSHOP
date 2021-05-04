@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "dmc": "bookmonkey-api"
   },
   "private": true,
   "dependencies": {
@@ -31,6 +32,7 @@
     "@angular/compiler-cli": "~11.2.5",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
+    "bookmonkey-api": "^3.0.3",
     "codelyzer": "^6.0.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
