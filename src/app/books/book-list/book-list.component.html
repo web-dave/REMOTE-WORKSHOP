@@ -1,4 +1,5 @@
 <h3>Book List</h3>
+<a routerLink="new" class="btn btn-default btn-sm"> NEW </a>
 <ul *ngIf="books">
   <li *ngFor="let book of books; let i = index">{{ i }} {{ book.title }}</li>
   <zeiss-book-preview

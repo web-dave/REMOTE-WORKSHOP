@@ -9,7 +9,8 @@ import { BookService } from './book.service';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { PagesPipe } from './pages.pipe';
 import { BookEditComponent } from './book-edit/book-edit.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BookNewComponent } from './book-new/book-new.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +20,9 @@ import { FormsModule } from '@angular/forms';
     BookDetailsComponent,
     PagesPipe,
     BookEditComponent,
+    BookNewComponent,
   ],
-  imports: [CommonModule, BooksRoutingModule, FormsModule],
+  imports: [CommonModule, BooksRoutingModule, FormsModule, ReactiveFormsModule],
   exports: [BooksComponent],
 })
 export class BooksModule {}

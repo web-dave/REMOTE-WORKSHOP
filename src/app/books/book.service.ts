@@ -31,4 +31,6 @@ export class BookService {
         pluck('body')
       );
   }
+
+  createBook(book: IBook) {}
 }
