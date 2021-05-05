@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 import { BookService } from '../book.service';
 import { IBook } from '../ibook.interface';
 
@@ -23,7 +23,9 @@ export class BookDetailsComponent implements OnInit {
       this.i = 1;
     }, 1500);
     this.book$ = this.route.params.pipe(
-      switchMap((data) => this.service.getBook(data.isbn))
+      tap(console.log),
+      switchMap((data) => this.service.getBook(data.isbn)),
+      tap((data) => console.log(data.title))
     );
   }
 
