@@ -1,8 +1,9 @@
 <p>book-list works!</p>
+<button routerLink="new">+</button>
 <ul>
-  <strong>
+  <!-- <strong>
     {{ books }}
-  </strong>
+  </strong> -->
   <ng-sw-book-preview
     *ngFor="let b of books$ | async"
     [book]="b"
@@ -11,10 +12,10 @@
 
   <hr />
 
-  <ng-sw-book-preview
+  <!-- <ng-sw-book-preview
     [book]="oneBook"
     (bookselected)="bookWasSelected($event)"
-  ></ng-sw-book-preview>
+  ></ng-sw-book-preview> -->
 </ul>
 
 <ng-template let-data="books" #marie>

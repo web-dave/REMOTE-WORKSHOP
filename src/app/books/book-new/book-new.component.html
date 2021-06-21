@@ -1,0 +1,31 @@
+<p>book-new works!</p>
+<!-- <pre>{{ bookNewForm.value | json }}</pre> -->
+<form [formGroup]="bookNewForm" (ngSubmit)="save()">
+  <label for="title">Title</label><br />
+  <input type="text" formControlName="title" id="title" />
+  <hr />
+  <label for="subtitle">Subtitle</label><br />
+  <input type="text" formControlName="subtitle" id="subtitle" />
+  <hr />
+  <label for="isbn">ISBN</label><br />
+  <input type="text" formControlName="isbn" id="isbn" />
+  <hr />
+  <label for="abstract">Abstract</label><br />
+  <input type="text" formControlName="abstract" id="abstract" />
+  <hr />
+  <label for="author">author</label><br />
+  <input type="text" formControlName="author" id="author" />
+  <hr />
+  <label for="numPages">numPages</label><br />
+  <input type="text" formControlName="numPages" id="numPages" />
+  <hr />
+  <div formGroupName="publisher">
+    <label for="name">Name</label><br />
+    <input type="text" formControlName="name" id="name" />
+    <hr />
+    <label for="url">Url</label><br />
+    <input type="text" formControlName="url" id="url" />
+    <hr />
+  </div>
+  <button type="submit">Save</button>
+</form>

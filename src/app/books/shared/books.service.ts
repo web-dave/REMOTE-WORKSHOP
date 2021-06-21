@@ -13,11 +13,13 @@ export class BooksService {
 
   getBooks(): Observable<IBook[]> {
     return this.http.get<IBook[]>(this.url);
-    //.pipe(map((arr) => arr.map((book) => book.title)));
   }
 
   getBook(isbn: string): Observable<IBook> {
     return this.http.get<IBook>(this.url + '/' + isbn);
-    //.pipe(map((arr) => arr.map((book) => book.title)));
+  }
+
+  createBook(book: IBook): Observable<IBook> {
+    return this.http.post<IBook>(this.url, book);
   }
 }
