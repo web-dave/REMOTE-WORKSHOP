@@ -1,6 +1,6 @@
-<p>book-new works!</p>
 <!-- <pre>{{ bookNewForm.value | json }}</pre> -->
 <form [formGroup]="bookNewForm" (ngSubmit)="save()">
+  <h3>Create a book</h3>
   <label for="title">Title</label><br />
   <input type="text" formControlName="title" id="title" />
   <hr />
