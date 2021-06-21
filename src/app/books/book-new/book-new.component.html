@@ -1,4 +1,4 @@
-<!-- <pre>{{ bookNewForm.value | json }}</pre> -->
+<pre>{{ bookNewForm.value | json }}</pre>
 <form [formGroup]="bookNewForm" (ngSubmit)="save()">
   <h3>Create a book</h3>
   <label for="title">Title</label><br />
@@ -14,7 +14,11 @@
   <input type="text" formControlName="abstract" id="abstract" />
   <br />
   <label for="author">author</label><br />
-  <input type="text" formControlName="author" id="author" />
+  <span (click)="addAuthor()">+</span><br />
+  <ng-container *ngFor="let ctrl of authors.controls; let i = index">
+    <input type="text" [formControl]="ctrl" />
+    <button (click)="deleteAuthor(i)">X</button>
+  </ng-container>
   <br />
   <label for="numPages">numPages</label><br />
   <input type="text" formControlName="numPages" id="numPages" />
