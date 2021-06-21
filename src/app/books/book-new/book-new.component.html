@@ -3,29 +3,31 @@
   <h3>Create a book</h3>
   <label for="title">Title</label><br />
   <input type="text" formControlName="title" id="title" />
-  <hr />
+  <br />
   <label for="subtitle">Subtitle</label><br />
   <input type="text" formControlName="subtitle" id="subtitle" />
-  <hr />
+  <br />
   <label for="isbn">ISBN</label><br />
   <input type="text" formControlName="isbn" id="isbn" />
-  <hr />
+  <br />
   <label for="abstract">Abstract</label><br />
   <input type="text" formControlName="abstract" id="abstract" />
-  <hr />
+  <br />
   <label for="author">author</label><br />
   <input type="text" formControlName="author" id="author" />
-  <hr />
+  <br />
   <label for="numPages">numPages</label><br />
   <input type="text" formControlName="numPages" id="numPages" />
-  <hr />
+  <br />
+  <br />
+  <label>Publisher</label><br />
   <div formGroupName="publisher">
     <label for="name">Name</label><br />
     <input type="text" formControlName="name" id="name" />
-    <hr />
+    <br />
     <label for="url">Url</label><br />
     <input type="text" formControlName="url" id="url" />
-    <hr />
+    <br />
   </div>
   <button type="submit">Save</button>
 </form>
