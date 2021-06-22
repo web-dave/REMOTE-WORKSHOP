@@ -21,13 +21,15 @@
     "@angular/platform-browser": "~9.1.0",
     "@angular/platform-browser-dynamic": "~9.1.0",
     "@angular/router": "~9.1.0",
+    "@ngrx/store": "^9.2.1",
+    "@ngrx/store-devtools": "^9.2.1",
+    "@ngx-formly/bootstrap": "^5.0.0",
+    "@ngx-formly/core": "^5.0.0",
     "bootstrap": "^4.6.0",
     "jquery": "^3.6.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2",
-    "@ngx-formly/core": "^5.0.0",
-    "@ngx-formly/bootstrap": "^5.0.0"
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.0",

@@ -6,7 +6,9 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
+import { newBookSave, newBookStart } from '../redux/books.action';
 import { IBook } from '../shared/book.interface';
 import { BooksService } from '../shared/books.service';
 
@@ -18,7 +20,11 @@ import { BooksService } from '../shared/books.service';
 export class BookNewComponent implements OnInit {
   bookNewForm: FormGroup;
   authors: FormArray = new FormArray([]);
-  constructor(private builder: FormBuilder, private service: BooksService) {}
+  constructor(
+    private builder: FormBuilder,
+    private service: BooksService,
+    private store: Store<IBook[]>
+  ) {}
 
   ngOnInit(): void {
     this.bookNewForm = this.builder.group({
@@ -42,10 +48,16 @@ export class BookNewComponent implements OnInit {
         this.bookNewForm.markAsTouched();
         this.bookNewForm.updateValueAndValidity();
       });
+    this.store.dispatch(newBookStart());
+    this.store
+      .select((state) => state)
+      .subscribe((data) => console.log('=====>', data));
   }
 
   save() {
-    this.service.createBook(this.bookNewForm.value).subscribe();
+    this.service
+      .createBook(this.bookNewForm.value)
+      .subscribe((book) => this.store.dispatch(newBookSave({ book })));
   }
 
   addAuthor() {

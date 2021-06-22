@@ -9,6 +9,8 @@ import { BookPreviewComponent } from './book-preview/book-preview.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { SelfiePipe } from './shared/selfie.pipe';
 import { BookNewComponent } from './book-new/book-new.component';
+import { StoreModule } from '@ngrx/store';
+import { booksReducer } from './redux/books.reducer';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,12 @@ import { BookNewComponent } from './book-new/book-new.component';
     SelfiePipe,
     BookNewComponent,
   ],
-  imports: [CommonModule, BooksRoutingModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    BooksRoutingModule,
+    ReactiveFormsModule,
+    StoreModule.forFeature('booklist', booksReducer),
+  ],
   exports: [BooksComponent],
 })
 export class BooksModule {}

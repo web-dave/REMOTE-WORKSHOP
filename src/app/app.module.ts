@@ -9,6 +9,9 @@ import { AboutModule } from './about/about.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent, NavComponent],
@@ -20,6 +23,21 @@ import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
     ReactiveFormsModule,
     FormlyModule.forRoot({ extras: { lazyRender: true } }),
     FormlyBootstrapModule,
+    StoreModule.forRoot(
+      {
+        foo: () => {
+          console.log('foo');
+          return 'foo';
+        },
+        bar: () => 'bar',
+        baz: () => 'baz',
+      },
+      {}
+    ),
+    StoreDevtoolsModule.instrument({
+      maxAge: 100,
+      logOnly: environment.production,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
