@@ -12,7 +12,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     AboutRoutingModule,
     ReactiveFormsModule,
-    FormlyModule.forChild(),
+    FormlyModule.forChild({
+      validationMessages: [{ name: 'email', message: 'I-MAIL ist falsch' }],
+    }),
   ],
 })
 export class AboutModule {}

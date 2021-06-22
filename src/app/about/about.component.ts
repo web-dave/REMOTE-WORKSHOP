@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
+import { emailAsyncValidator, emailValidator } from './email.validator';
 
 @Component({
   selector: 'ng-sw-about',
@@ -46,6 +47,23 @@ export class AboutComponent implements OnInit {
           { label: 'She/Her', value: 'female' },
           { label: 'They/Them', value: 'they' },
         ],
+      },
+    },
+    {
+      key: 'email',
+      type: 'input',
+      templateOptions: {
+        label: 'email',
+        placeholder: 'Email',
+        description: 'Your email',
+        required: true,
+        type: 'mail',
+      },
+      asyncValidators: {
+        validation: [emailAsyncValidator()],
+      },
+      validators: {
+        validation: [],
       },
     },
   ];

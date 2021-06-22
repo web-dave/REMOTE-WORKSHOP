@@ -39,6 +39,8 @@ export class BookNewComponent implements OnInit {
       .subscribe((data) => {
         console.log(data);
         this.bookNewForm.get('author').setValue(data.join(','));
+        this.bookNewForm.markAsTouched();
+        this.bookNewForm.updateValueAndValidity();
       });
   }
 
