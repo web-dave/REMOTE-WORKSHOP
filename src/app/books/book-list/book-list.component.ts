@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { first, takeUntil } from 'rxjs/operators';
+import { IBooksFeature } from '../redux/books.reducer';
 import { IBook } from '../shared/book.interface';
 import { BooksService } from '../shared/books.service';
 
@@ -45,7 +46,7 @@ export class BookListComponent implements OnInit, OnDestroy {
     private cdr: ChangeDetectorRef,
     private router: Router,
     private route: ActivatedRoute,
-    private store: Store<{ foo: string; bar: string; booklist: IBook[] }>
+    private store: Store<IBooksFeature>
   ) {}
 
   ngOnInit(): void {
