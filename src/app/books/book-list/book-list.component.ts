@@ -6,6 +6,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { first, takeUntil } from 'rxjs/operators';
 import { IBook } from '../shared/book.interface';
@@ -43,32 +44,34 @@ export class BookListComponent implements OnInit, OnDestroy {
     private service: BooksService,
     private cdr: ChangeDetectorRef,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private store: Store<{ foo: string; bar: string; booklist: IBook[] }>
   ) {}
 
   ngOnInit(): void {
-    this.books$ = this.service.getBooks();
+    this.books$ = this.store.select((state) => state.booklist);
+    // this.books$ = this.service.getBooks();
     // Manuel
-    this.mySub = this.service
-      .getBooks()
-      .pipe()
-      .subscribe((data) => (this.books = data));
-    // Halb Automatisch
-    this.parentsub.add(
-      this.service.getBooks().subscribe((data) => (this.books = data))
-    );
+    // this.mySub = this.service
+    //   .getBooks()
+    //   .pipe()
+    //   .subscribe((data) => (this.books = data));
+    // // Halb Automatisch
+    // this.parentsub.add(
+    //   this.service.getBooks().subscribe((data) => (this.books = data))
+    // );
 
-    // 3/4 Automatisch
-    this.service
-      .getBooks()
-      .pipe(takeUntil(this.end$))
-      .subscribe((data) => (this.books = data));
+    // // 3/4 Automatisch
+    // this.service
+    //   .getBooks()
+    //   .pipe(takeUntil(this.end$))
+    //   .subscribe((data) => (this.books = data));
 
-    setInterval(() => {
-      // this.oneBook = { ...this.oneBook };
-      this.oneBook.numPages++;
-      this.cdr.detectChanges();
-    }, 1500);
+    // setInterval(() => {
+    //   // this.oneBook = { ...this.oneBook };
+    //   this.oneBook.numPages++;
+    //   this.cdr.detectChanges();
+    // }, 1500);
   }
 
   bookWasSelected(b: IBook) {

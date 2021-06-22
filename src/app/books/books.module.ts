@@ -11,6 +11,7 @@ import { SelfiePipe } from './shared/selfie.pipe';
 import { BookNewComponent } from './book-new/book-new.component';
 import { StoreModule } from '@ngrx/store';
 import { booksReducer } from './redux/books.reducer';
+import { FavModule } from './fav/fav.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { booksReducer } from './redux/books.reducer';
     CommonModule,
     BooksRoutingModule,
     ReactiveFormsModule,
-    StoreModule.forFeature('booklist', booksReducer),
+    StoreModule.forFeature('BooksModule', booksReducer),
+    FavModule,
   ],
   exports: [BooksComponent],
 })
