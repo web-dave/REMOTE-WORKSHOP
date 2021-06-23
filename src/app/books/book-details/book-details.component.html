@@ -1,5 +1,5 @@
 <div class="panel panel-default" *ngIf="book$ | async as mybook">
-  <div class="panel-heading">{{ format(text) }} ({{ mybook.isbn }})</div>
+  <!-- <div class="panel-heading">{{ format(text) }} ({{ mybook.isbn }})</div> -->
   <div class="panel-heading">{{ text | selfie }} ({{ mybook.isbn }})</div>
   <div class="panel-body">
     <p>

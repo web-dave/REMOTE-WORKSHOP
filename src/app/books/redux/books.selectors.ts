@@ -1,7 +1,13 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { IBook } from '../shared/book.interface';
+import { IBooksFeature } from './books.reducer';
 
-export const getBooksSelector = createFeatureSelector<IBook[]>('booklist');
+export const BooksModuleSelector =
+  createFeatureSelector<IBooksFeature>('BooksModule');
+
+export const getBooksSelector = createSelector(
+  BooksModuleSelector,
+  (feature) => feature.booklist
+);
 
 export const getBookSelector = (isbn: string) =>
   createSelector(getBooksSelector, (list) =>

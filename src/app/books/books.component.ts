@@ -60,6 +60,6 @@ export class BooksComponent implements OnInit {
       },
     ];
 
-    this.store.dispatch(setAllBooks({ books }));
+    // this.store.dispatch(setAllBooks({ books }));
   }
 }

@@ -33,7 +33,6 @@ import { booksReducer } from './books/redux/books.reducer';
         users: () => [],
         bar: () => 'bar',
         baz: () => 'baz',
-        booklist: booksReducer,
       },
       {}
     ),
