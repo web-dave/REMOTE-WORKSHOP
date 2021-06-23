@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 import { getBookSelector } from '../redux/books.selectors';
 import { IBook } from '../shared/book.interface';
 import { BooksService } from '../shared/books.service';
@@ -33,11 +33,13 @@ export class BookDetailsComponent implements OnInit {
 
     // this.book$ = this.service.getBook(this.route.snapshot.params.isbn);
 
-    this.book$ = this.route.params.pipe(
-      switchMap((params: { isbn: string }) =>
-        this.store.select(getBookSelector(params.isbn))
+    this.book$ = this.route.params
+      .pipe(
+        switchMap((params: { isbn: string }) =>
+          this.store.select(getBookSelector(params.isbn))
+        )
       )
-    );
+      .pipe(tap(console.log));
   }
 
   add(a: number, b: number) {

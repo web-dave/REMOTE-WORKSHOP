@@ -12,7 +12,6 @@ import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { booksReducer } from './books/redux/books.reducer';
 import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({

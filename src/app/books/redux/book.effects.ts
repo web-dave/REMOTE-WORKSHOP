@@ -25,6 +25,7 @@ export class BookEffects {
       ),
     { dispatch: true }
   );
+
   loadBooks = createEffect(() =>
     this.actions$.pipe(
       ofType(initBookList),
@@ -32,5 +33,6 @@ export class BookEffects {
       map((books) => setAllBooks({ books }))
     )
   );
+
   constructor(private actions$: Actions, private service: BooksService) {}
 }

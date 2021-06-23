@@ -10,7 +10,7 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { SelfiePipe } from './shared/selfie.pipe';
 import { BookNewComponent } from './book-new/book-new.component';
 import { StoreModule } from '@ngrx/store';
-import { booksReducer } from './redux/books.reducer';
+import { bookListReducer } from './redux/books.reducer';
 import { FavModule } from './fav/fav.module';
 import { EffectsModule } from '@ngrx/effects';
 import { BookEffects } from './redux/book.effects';
@@ -28,7 +28,7 @@ import { BookEffects } from './redux/book.effects';
     CommonModule,
     BooksRoutingModule,
     ReactiveFormsModule,
-    StoreModule.forFeature('BooksModule', booksReducer),
+    StoreModule.forFeature('booklist', bookListReducer),
     EffectsModule.forFeature([BookEffects]),
     FavModule,
   ],
