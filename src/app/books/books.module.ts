@@ -12,6 +12,8 @@ import { BookNewComponent } from './book-new/book-new.component';
 import { StoreModule } from '@ngrx/store';
 import { booksReducer } from './redux/books.reducer';
 import { FavModule } from './fav/fav.module';
+import { EffectsModule } from '@ngrx/effects';
+import { BookEffects } from './redux/book.effects';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { FavModule } from './fav/fav.module';
     BooksRoutingModule,
     ReactiveFormsModule,
     StoreModule.forFeature('BooksModule', booksReducer),
+    EffectsModule.forFeature([BookEffects]),
     FavModule,
   ],
   exports: [BooksComponent],

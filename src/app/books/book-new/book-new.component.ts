@@ -55,9 +55,7 @@ export class BookNewComponent implements OnInit {
   }
 
   save() {
-    this.service
-      .createBook(this.bookNewForm.value)
-      .subscribe((book) => this.store.dispatch(newBookSave({ book })));
+    this.store.dispatch(newBookSave({ book: this.bookNewForm.value }));
   }
 
   addAuthor() {
