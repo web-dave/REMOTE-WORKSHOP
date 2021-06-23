@@ -10,5 +10,5 @@ const books: BookList = [];
 export const booksReducer = createReducer(
   books,
   on(newBookSave, (state, action) => [...state, action.book]),
-  on(setAllBooks, (state, action) => [...state, ...action.books])
+  on(setAllBooks, (state, action) => [...action.books])
 );

@@ -10,6 +10,7 @@ import { Store } from '@ngrx/store';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { first, takeUntil } from 'rxjs/operators';
 import { IBooksFeature } from '../redux/books.reducer';
+import { getBooksSelector } from '../redux/books.selectors';
 import { IBook } from '../shared/book.interface';
 import { BooksService } from '../shared/books.service';
 
@@ -50,29 +51,29 @@ export class BookListComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.books$ = this.store.select((state) => state.booklist);
+    this.books$ = this.store.select(getBooksSelector);
     // this.books$ = this.service.getBooks();
-    // Manuel
-    // this.mySub = this.service
-    //   .getBooks()
-    //   .pipe()
-    //   .subscribe((data) => (this.books = data));
-    // // Halb Automatisch
-    // this.parentsub.add(
-    //   this.service.getBooks().subscribe((data) => (this.books = data))
-    // );
+    // Manuel;
+    this.mySub = this.service
+      .getBooks()
+      .pipe()
+      .subscribe((data) => (this.books = data));
+    // Halb Automatisch
+    this.parentsub.add(
+      this.service.getBooks().subscribe((data) => (this.books = data))
+    );
 
-    // // 3/4 Automatisch
-    // this.service
-    //   .getBooks()
-    //   .pipe(takeUntil(this.end$))
-    //   .subscribe((data) => (this.books = data));
+    // 3/4 Automatisch
+    this.service
+      .getBooks()
+      .pipe(takeUntil(this.end$))
+      .subscribe((data) => (this.books = data));
 
-    // setInterval(() => {
-    //   // this.oneBook = { ...this.oneBook };
-    //   this.oneBook.numPages++;
-    //   this.cdr.detectChanges();
-    // }, 1500);
+    setInterval(() => {
+      // this.oneBook = { ...this.oneBook };
+      this.oneBook.numPages++;
+      this.cdr.detectChanges();
+    }, 1500);
   }
 
   bookWasSelected(b: IBook) {
