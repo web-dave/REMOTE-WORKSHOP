@@ -38,6 +38,7 @@
     "@angular/cli": "~9.1.0",
     "@angular/compiler-cli": "~9.1.0",
     "@angular/language-service": "~9.1.0",
+    "@ngneat/spectator": "^7.2.0",
     "@ngx-formly/schematics": "^5.10.21",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
