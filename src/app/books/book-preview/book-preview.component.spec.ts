@@ -17,7 +17,7 @@ const book: IBook = {
   cover: 'http://localhost:4730/covers/978-0-20163-361-0.jpg',
 };
 
-fdescribe('BookPreviewComponent', () => {
+describe('BookPreviewComponent', () => {
   let spectator: Spectator<BookPreviewComponent>;
   const createComponent = createComponentFactory(BookPreviewComponent);
 
@@ -27,6 +27,6 @@ fdescribe('BookPreviewComponent', () => {
 
   it('should have a title', () => {
     spectator.setInput('book', book);
-    expect(spectator.query('li')).toHaveText(book.title);
+    expect(spectator.query('.title')).toHaveText(book.title);
   });
 });
