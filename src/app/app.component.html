@@ -1,1 +1,17 @@
-<app-book-card [book]="data"></app-book-card>
+<app-book-card
+  [book]="dasbook"
+  [attr.name]="i"
+  *ngFor="
+    let dasbook of data;
+    let i = index;
+    let e = even;
+    let o = odd;
+    let l = last;
+    let f = first
+  "
+  (detailClick)="goToBookDetails($event)"
+></app-book-card>
+
+<button *ngFor="let n of foo" #7821635187245>{{ n }}</button>
+<!-- -->
+<pre>{{ data | json }}</pre>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IBook } from '../book.interface';
 
 @Component({
@@ -7,6 +7,7 @@ import { IBook } from '../book.interface';
   styleUrls: ['./book-card.component.scss']
 })
 export class BookCardComponent implements OnInit {
+  @Output() detailClick = new EventEmitter<IBook>()
 
   @Input()book: IBook = { title: '', author: '', abstract: '', isbn: '' };
 foo!:IBook;
@@ -24,5 +25,8 @@ link="lonk"
     throw new Error('Method not implemented.');
   }
 
+  linkWasClicked(){ 
+    this.detailClick.emit(this.book)   
+  }
 
 }
