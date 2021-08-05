@@ -1,0 +1,7 @@
+<h3>Book 🐒</h3>
+<input [value]="searchStr" (input)="setSearchString($event)" />
+<app-book-card
+  [book]="dasbook"
+  *ngFor="let dasbook of data | filterBooks: searchStr"
+  (detailClick)="goToBookDetails($event)"
+></app-book-card>

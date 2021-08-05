@@ -1,14 +1,1 @@
-<input [value]="searchStr" (input)="setSearchString($event)" />
-<app-book-card
-  [book]="dasbook"
-  *ngFor="let dasbook of data | filterBooks: searchStr"
-  (detailClick)="goToBookDetails($event)"
-></app-book-card>
-<hr />
-<app-book-card
-  [book]="dasbook"
-  *ngFor="let dasbook of filterBooks()"
-  (detailClick)="goToBookDetails($event)"
-></app-book-card>
-
-<pre>{{ data | json }}</pre>
+<app-book></app-book>
