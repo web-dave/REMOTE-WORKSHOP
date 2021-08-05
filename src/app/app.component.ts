@@ -31,8 +31,18 @@ export class AppComponent {
   goToBookDetails(data: IBook){
     console.log(data)
   }
+  filterBooks(){
+    console.log('searchStr', this.searchStr,'Func');
+    return this.data.filter((book: IBook) => book.title.includes(this.searchStr) || book.author.includes(this.searchStr))
+  }
   setSearchString(evt: Event){
 
     this.searchStr = (evt.target as HTMLInputElement).value
+  }
+
+  constructor(){
+    setInterval(()=> {
+    this.searchStr = 'WHY'
+    },1500)
   }
 }
