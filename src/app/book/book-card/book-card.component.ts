@@ -4,29 +4,21 @@ import { IBook } from '../book.interface';
 @Component({
   selector: 'app-book-card',
   templateUrl: './book-card.component.html',
-  styleUrls: ['./book-card.component.scss']
+  styleUrls: ['./book-card.component.scss'],
 })
-export class BookCardComponent implements OnInit {
-  @Output() detailClick = new EventEmitter<IBook>()
+export class BookCardComponent {
+  @Output() detailClick = new EventEmitter<IBook>();
 
-  @Input()book: IBook = { title: '', author: '', abstract: '', isbn: '' };
-foo!:IBook;
+  @Input() book: IBook = { title: '', author: '', abstract: '', isbn: '' };
+  foo!: IBook;
 
-link="lonk"
+  link = 'lonk'
   styling = {
-    color: 'hotpink'
-  }
-  i = 1
-  constructor() {
-    
-    setTimeout(()=>{this.i++;}, 500)
-   }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+    color: 'hotpink',
+  };
+  constructor() {}
 
-  linkWasClicked(){ 
-    this.detailClick.emit(this.book)   
+  linkWasClicked() {
+    this.detailClick.emit(this.book);
   }
-
 }
