@@ -1,8 +1,7 @@
 <h3>Book 🐒</h3>
-{{ muh }}
 <input [value]="searchStr" (input)="setSearchString($event)" />
 <app-book-card
   [book]="dasbook"
-  *ngFor="let dasbook of data | filterBooks: searchStr | slice: 0:100"
+  *ngFor="let dasbook of books$ | async | filterBooks: searchStr | slice: 0:10"
   (detailClick)="goToBookDetails($event)"
 ></app-book-card>
