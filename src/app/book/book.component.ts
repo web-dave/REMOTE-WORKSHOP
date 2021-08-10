@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { BookApiService } from './book-api.service';
 import { IBook } from './book.interface';
 
 @Component({
@@ -6,34 +8,34 @@ import { IBook } from './book.interface';
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.scss'],
 })
-export class BookComponent {
+export class BookComponent implements OnDestroy, AfterViewChecked {
   searchStr = '';
 
-  data: IBook[] = [
-    {
-      author: 'Simon Sinek',
-      title: 'Start with WHY',
-      isbn: '',
-      abstract: "START WITH WHY shows that the leaders who've ...",
-    },
-    {
-      title: 'How to win friends',
-      author: 'Dale Carnegie',
-      abstract: 'In this book ...',
-      isbn: '879-9879-654-654-5',
-    },
-    {
-      title: 'The Willpower Instinct: How Self-Control Works ...',
-      author: 'Kelly McGonigal',
-      abstract: 'Based on Stanford University ...',
-      isbn: '',
-    },
-  ];
+  muh = 'MUH';
+
+  sub: Subscription = new Subscription();
+
+  data: IBook[] = [];
+
+  constructor(private service: BookApiService) {
+    this.sub.add(
+      this.service.getBooks().subscribe((wert) => (this.data = wert))
+    );
+  }
+  ngAfterViewChecked(): void {
+    // setTimeout(() => {
+    // this.muh = 'MÄH';
+    // }, 0);
+  }
 
   goToBookDetails(data: IBook) {
     console.log(data);
   }
   setSearchString(evt: Event) {
     this.searchStr = (evt.target as HTMLInputElement).value;
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 }
