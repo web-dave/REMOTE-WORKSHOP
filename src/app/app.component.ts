@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IBook } from './book.interface';
 
 @Component({
   selector: 'ng-sw-root',
@@ -6,8 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'remote-workshop';
-  reciveMyTitle(e: string) {
-    console.log(e);
-  }
+  title = '?? remote-workshop';
+  data: IBook = {
+    title: 'How to win friends',
+    author: 'Dale Carnegie',
+    abstract: 'In this book ...',
+    isbn:'879-9879-654-654-5'
+  };
 }
