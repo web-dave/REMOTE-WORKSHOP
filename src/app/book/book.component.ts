@@ -15,7 +15,13 @@ export class BookComponent {
 
   data: IBook[] = [];
 
-  constructor(private service: BookApiService) {}
+  constructor(private service: BookApiService) {
+    this.books$.subscribe(
+      (d) => console.log(d),
+      (e) => console.error(e),
+      () => console.log('END')
+    );
+  }
 
   goToBookDetails(data: IBook) {
     console.log(data);
