@@ -6,6 +6,10 @@ const routes: Routes = [
     pathMatch: 'full',
     redirectTo: '/books',
   },
+  {
+    path: 'books',
+    loadChildren: () => import('./book/book.module').then((m) => m.BookModule),
+  },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

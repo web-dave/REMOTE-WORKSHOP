@@ -4,11 +4,11 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { BookComponent } from './book.component';
 const routes: Routes = [
   {
-    path: 'books',
+    path: '',
     component: BookComponent,
   },
   {
-    path: 'books/details/:isbn',
+    path: 'details/:isbn',
     component: BookDetailsComponent,
   },
 ];

@@ -18,7 +18,7 @@ export class BookComponent {
 
   constructor(private service: BookApiService, private router: Router) {
     this.books$.subscribe(
-      (d) => console.log(d),
+      (u) => console.log(u),
       (e) => console.error(e),
       () => console.log('END')
     );
