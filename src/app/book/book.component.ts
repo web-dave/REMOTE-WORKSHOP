@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { BookApiService } from './book-api.service';
 import { IBook } from './book.interface';
@@ -15,7 +16,7 @@ export class BookComponent {
 
   data: IBook[] = [];
 
-  constructor(private service: BookApiService) {
+  constructor(private service: BookApiService, private router: Router) {
     this.books$.subscribe(
       (d) => console.log(d),
       (e) => console.error(e),
@@ -25,6 +26,7 @@ export class BookComponent {
 
   goToBookDetails(data: IBook) {
     console.log(data);
+    this.router.navigate(['books', 'details', data.isbn]);
   }
 
   setSearchString(evt: Event) {

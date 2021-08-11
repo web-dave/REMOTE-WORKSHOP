@@ -9,10 +9,10 @@ import { IBook } from '../book.interface';
 export class BookCardComponent {
   @Output() detailClick = new EventEmitter<IBook>();
 
-  @Input() book: IBook = { title: '', author: '', abstract: '', isbn: '' };
+  @Input() book!: IBook;
   foo!: IBook;
 
-  link = 'lonk'
+  link = 'lonk';
   styling = {
     color: 'hotpink',
   };
