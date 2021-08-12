@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { BookApiService } from '../book-api.service';
 import { SubtitleValidator } from './subtitle.validator';
 
 @Component({
@@ -14,7 +15,10 @@ import { SubtitleValidator } from './subtitle.validator';
 })
 export class BookNewComponent implements OnInit {
   form!: FormGroup;
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private service: BookApiService
+  ) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -37,5 +41,9 @@ export class BookNewComponent implements OnInit {
     //     foo.setValidators(Validators.required);
     //   }
     // });
+  }
+
+  saveBook() {
+    this.service.createBook(this.form.getRawValue()).subscribe();
   }
 }

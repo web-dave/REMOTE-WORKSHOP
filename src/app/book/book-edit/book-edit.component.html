@@ -1,0 +1,12 @@
+<p>book-edit works!</p>
+<form #form="ngForm">
+  <input
+    type="text"
+    [(ngModel)]="book.title"
+    required
+    name="title"
+    #title="ngModel"
+  />
+  {{ title.valid }}
+</form>
+<pre>{{ book | json }}</pre>

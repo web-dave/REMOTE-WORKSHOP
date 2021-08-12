@@ -20,4 +20,8 @@ export class BookApiService {
       .get<IBook>('http://localhost:4730/books/' + isbn)
       .pipe(first());
   }
+
+  createBook(book: IBook): Observable<IBook> {
+    return this.http.post<IBook>('http://localhost:4730/books', book);
+  }
 }

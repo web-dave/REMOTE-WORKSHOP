@@ -14,9 +14,6 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
   book!: IBook;
   book$!: Observable<IBook>;
   end$ = new EventEmitter<void>();
-  // window.onbeforeunload = function() {
-  //      return 'Möchten Sie die Seite wirklich verlassen?';
-  //   };
   constructor(private route: ActivatedRoute, private service: BookApiService) {}
 
   ngOnInit(): void {

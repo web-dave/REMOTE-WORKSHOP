@@ -1,17 +1,27 @@
 <p>book-new works!</p>
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="saveBook()">
   <label for="title">Title:</label>
-  <input type="text" name="title" id="title" formControlName="title" /><br />
+
+  <input type="text" name="title" id="title" formControlName="title" /><span
+    [hidden]="form.get('title')?.valid"
+    >⚠️</span
+  ><br />
   <label for="isbn">isbn:</label>
-  <input type="text" name="isbn" id="isbn" formControlName="isbn" /><br />
+  <input type="text" name="isbn" id="isbn" formControlName="isbn" /><span
+    [hidden]="form.get('isbn')?.valid"
+    >⚠️</span
+  ><br />
   <label for="author">Author:</label>
-  <input type="text" name="author" id="author" formControlName="author" /><br />
+  <input type="text" name="author" id="author" formControlName="author" /><span
+    [hidden]="form.get('author')?.valid"
+    >⚠️</span
+  ><br />
   <label for="subtitle">Subtitle:</label>
   <input
     type="text"
     name="subtitle"
     id="subtitle"
     formControlName="subtitle"
-  /><br />
+  /><span [hidden]="form.get('subtitle')?.valid">⚠️</span><br />
   <button type="submit">Save</button>
 </form>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { BookEditComponent } from './book-edit/book-edit.component';
 import { BookNewComponent } from './book-new/book-new.component';
 import { BookComponent } from './book.component';
 import { ConfirmLeaveGuard } from './confirm-leave.guard';
@@ -14,6 +15,10 @@ const routes: Routes = [
     component: BookDetailsComponent,
     canDeactivate: [ConfirmLeaveGuard],
     canActivate: [ConfirmLeaveGuard],
+  },
+  {
+    path: 'edit/:isbn',
+    component: BookEditComponent,
   },
   {
     path: 'new',
