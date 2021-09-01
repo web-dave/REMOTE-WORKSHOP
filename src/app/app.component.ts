@@ -1,10 +1,16 @@
 import { Component } from '@angular/core';
+import * as foo from './foo';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: `
+    <h1>{{ title }}</h1>
+    {{ baz }}
+  `,
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'bookmonkey-client';
+  title = 'bookmonkey-client!!!';
+  foo = foo.foo;
+  baz = foo.bar();
 }
