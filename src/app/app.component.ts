@@ -4,8 +4,15 @@ import * as foo from './foo';
 @Component({
   selector: 'app-root',
   template: `
-    <h1>{{ title }}</h1>
-    {{ baz }}
+    <app-book-card></app-book-card>
+    <app-book-card></app-book-card>
+    <app-book-card></app-book-card>
+    <app-book-card></app-book-card>
+    <app-book-card></app-book-card>
+    <app-book-card></app-book-card>
+    <app-book-card></app-book-card>
+    <app-book-card></app-book-card>
+    <app-book-card></app-book-card>
   `,
   styleUrls: ['./app.component.scss'],
 })
