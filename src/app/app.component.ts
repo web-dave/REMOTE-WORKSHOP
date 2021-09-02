@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IBook } from './book.interface';
 import * as foo from './foo';
 
 @Component({
@@ -21,7 +22,7 @@ export class AppComponent {
   foo = foo.foo;
   baz = foo.bar();
 
-  data = {
+  data: IBook = {
     title: 'How to win friends',
     author: 'Dale Carnegie',
     abstract: ` Lorem ipsum dolor sit amet consectetur adipisicing elit. Est earum harum
