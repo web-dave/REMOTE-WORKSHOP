@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IBook } from '../book.interface';
 
 @Component({
@@ -8,6 +8,7 @@ import { IBook } from '../book.interface';
 })
 export class BookCardComponent implements OnInit {
   @Input() content: IBook = { abstract: '', author: '', title: '' };
+  @Output() goto = new EventEmitter<IBook>();
   color = 'hotpink';
   styles = {
     textShadow: '2pt 2pt #456789',
@@ -18,6 +19,7 @@ export class BookCardComponent implements OnInit {
 
   myFunk(ev: MouseEvent) {
     console.log(ev);
+    this.goto.emit(this.content);
     // this.content.title += ev.x;
   }
 }

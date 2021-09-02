@@ -1,6 +1,6 @@
-<h3>{{ content.title }}</h3>
+<h3 *ngIf="content">{{ content.title }}</h3>
 <h4 [style]="styles" [innerText]="content.author"></h4>
-<a (click)="myFunk($event)">details</a>
+<button (click)="myFunk($event)">details</button>
 <p [attr.data-foo]="color" [style.backgroundColor]="color">
   {{ content.abstract }}
 </p>
