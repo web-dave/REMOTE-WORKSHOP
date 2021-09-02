@@ -13,6 +13,7 @@ export class BookCardComponent implements OnInit {
   styles = {
     textShadow: '2pt 2pt #456789',
   };
+  date = new Date();
   constructor() {}
 
   ngOnInit(): void {}

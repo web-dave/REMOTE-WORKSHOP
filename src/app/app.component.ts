@@ -5,16 +5,18 @@ import * as foo from './foo';
 @Component({
   selector: 'app-root',
   template: `
+    <input (input)="searchBook($event)" />
     <app-book-card
       [content]="book"
       (goto)="navigate($event)"
-      *ngFor="let book of data; let i = index; let e = even; let o = odd"
+      *ngFor="let book of data | filterBooks: searchStr"
     ></app-book-card>
   `,
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'bookmonkey-client!!!';
+  searchStr = '';
   foo = foo.foo;
   baz = foo.bar();
 
@@ -38,5 +40,9 @@ export class AppComponent {
 
   navigate(book: IBook) {
     console.table(book);
+  }
+
+  searchBook(ev: Event) {
+    this.searchStr = (ev.target as HTMLInputElement).value;
   }
 }
