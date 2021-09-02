@@ -15,4 +15,9 @@ export class BookCardComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  myFunk(ev: MouseEvent) {
+    console.log(ev);
+    // this.content.title += ev.x;
+  }
 }
