@@ -5,7 +5,8 @@ import * as foo from './foo';
 @Component({
   selector: 'app-root',
   template: `
-    <input (input)="searchBook($event)" />
+    <!-- <input (input)="searchBook($event)" /> -->
+    <app-search [(search)]="searchStr"></app-search>
     <app-book-card
       [content]="book"
       (goto)="navigate($event)"
@@ -42,7 +43,7 @@ export class AppComponent {
     console.table(book);
   }
 
-  searchBook(ev: Event) {
-    this.searchStr = (ev.target as HTMLInputElement).value;
-  }
+  // searchBook(ev: Event) {
+  //   this.searchStr = (ev.target as HTMLInputElement).value;
+  // }
 }
