@@ -1,9 +1,6 @@
-<h3>Moby Dick</h3>
-<h4 [style]="styles">Herman Melville</h4>
+<h3>{{ content.tilte }}</h3>
+<h4 [style]="styles" [innerText]="content.author"></h4>
 <a href="">details</a>
 <p [attr.data-foo]="color" [style.backgroundColor]="color">
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Est earum harum
-  similique ex officia odit. Atque sapiente distinctio perspiciatis ipsa
-  obcaecati doloremque! Repellat temporibus doloribus consequuntur repellendus
-  deleniti error voluptatem!
+  {{ content.abstract }}
 </p>
