@@ -4,14 +4,7 @@ import * as foo from './foo';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <app-search [(search)]="searchStr"></app-search>
-    <app-book-card
-      [content]="book"
-      (goto)="navigate($event)"
-      *ngFor="let book of data | filterBooks: searchStr"
-    ></app-book-card>
-  `,
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
