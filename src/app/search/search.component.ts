@@ -2,8 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss'],
+  template: '<input (input)="searchBook($event)" />',
 })
 export class SearchComponent {
   @Input() search = '';
