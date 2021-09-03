@@ -1,5 +1,12 @@
-import { AfterViewChecked, Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  AfterViewChecked,
+  Component,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { NEVER, Observable, Subscription } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { IBook } from './book.interface';
 import { BookService } from './book.service';
 
@@ -8,21 +15,15 @@ import { BookService } from './book.service';
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.scss'],
 })
-export class BookComponent implements OnInit, OnDestroy {
+export class BookComponent implements OnInit {
   searchStr = '';
-  data: IBook[] = [];
-  sub = new Subscription();
+  books$: Observable<IBook[]> = NEVER;
   constructor(private bookService: BookService) {}
 
   navigate(book: IBook) {
     console.table(book);
   }
   ngOnInit(): void {
-    this.sub.add(
-      this.bookService.getBooks().subscribe((books) => (this.data = books))
-    );
-  }
-  ngOnDestroy() {
-    this.sub.unsubscribe();
+    this.books$ = this.bookService.getBooks();
   }
 }
