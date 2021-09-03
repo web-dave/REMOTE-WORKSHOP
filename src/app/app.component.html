@@ -1,6 +1,1 @@
-<app-search [(search)]="searchStr"></app-search>
-<app-book-card
-  [content]="book"
-  (goto)="navigate($event)"
-  *ngFor="let book of data | filterBooks: searchStr"
-></app-book-card>
+<app-book></app-book>
