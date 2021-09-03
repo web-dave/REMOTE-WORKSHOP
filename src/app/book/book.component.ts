@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, OnInit } from '@angular/core';
 import { NEVER, Observable } from 'rxjs';
 import { IBook } from './book.interface';
 import { BookService } from './book.service';
@@ -8,10 +8,13 @@ import { BookService } from './book.service';
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.scss'],
 })
-export class BookComponent implements OnInit {
+export class BookComponent implements OnInit, AfterViewChecked {
   searchStr = '';
   data: IBook[] = [];
   constructor(private bookService: BookService) {}
+  ngAfterViewChecked(): void {
+    // this.searchStr = 'Moin';
+  }
 
   ngOnInit(): void {
     this.bookService.getBooks().subscribe((books) => (this.data = books));

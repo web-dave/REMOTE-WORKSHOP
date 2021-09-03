@@ -1,5 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { IBook } from './book.interface';
 
@@ -24,9 +25,11 @@ export class BookService {
       abstract: "START WITH WHY shows that the leaders who've ...",
     },
   ];
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   getBooks(): Observable<IBook[]> {
-    return of(this.books).pipe(tap((data) => console.log(data)));
+    return this.http
+      .get<IBook[]>('http://localhost:4730/books')
+      .pipe(tap(console.log));
   }
 }

@@ -13,7 +13,7 @@ export class FilterBooksPipe implements PipeTransform {
     return books.filter(
       (book) =>
         book.title.toLowerCase().includes(searchStr.toLowerCase()) ||
-        book.abstract.toLowerCase().includes(searchStr.toLowerCase())
+        book.abstract?.toLowerCase().includes(searchStr.toLowerCase())
     );
   }
 }
