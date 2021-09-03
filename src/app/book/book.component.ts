@@ -1,5 +1,5 @@
-import { AfterViewChecked, Component, OnInit } from '@angular/core';
-import { NEVER, Observable } from 'rxjs';
+import { AfterViewChecked, Component, OnDestroy, OnInit } from '@angular/core';
+import { NEVER, Observable, Subscription } from 'rxjs';
 import { IBook } from './book.interface';
 import { BookService } from './book.service';
 
@@ -8,19 +8,21 @@ import { BookService } from './book.service';
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.scss'],
 })
-export class BookComponent implements OnInit, AfterViewChecked {
+export class BookComponent implements OnInit, OnDestroy {
   searchStr = '';
   data: IBook[] = [];
+  sub = new Subscription();
   constructor(private bookService: BookService) {}
-  ngAfterViewChecked(): void {
-    // this.searchStr = 'Moin';
-  }
-
-  ngOnInit(): void {
-    this.bookService.getBooks().subscribe((books) => (this.data = books));
-  }
 
   navigate(book: IBook) {
     console.table(book);
+  }
+  ngOnInit(): void {
+    this.sub.add(
+      this.bookService.getBooks().subscribe((books) => (this.data = books))
+    );
+  }
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 }
