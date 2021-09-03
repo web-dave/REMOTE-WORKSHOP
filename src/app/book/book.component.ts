@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NEVER, Observable } from 'rxjs';
 import { IBook } from './book.interface';
+import { BookService } from './book.service';
 
 @Component({
   selector: 'app-book',
@@ -8,27 +10,12 @@ import { IBook } from './book.interface';
 })
 export class BookComponent implements OnInit {
   searchStr = '';
-  constructor() {}
+  data: IBook[] = [];
+  constructor(private bookService: BookService) {}
 
-  ngOnInit(): void {}
-
-  data: IBook[] = [
-    {
-      title: 'How to win friends',
-      author: 'Dale Carnegie',
-      abstract: 'How to Win Friends and Influence ...',
-    },
-    {
-      title: 'The Willpower Instinct: How Self-Control Works ...',
-      author: 'Kelly McGonigal',
-      abstract: 'Based on Stanford University ...',
-    },
-    {
-      author: 'Simon Sinek',
-      title: 'Start with WHY',
-      abstract: "START WITH WHY shows that the leaders who've ...",
-    },
-  ];
+  ngOnInit(): void {
+    this.bookService.getBooks().subscribe((books) => (this.data = books));
+  }
 
   navigate(book: IBook) {
     console.table(book);
