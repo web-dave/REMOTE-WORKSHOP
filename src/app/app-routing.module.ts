@@ -7,10 +7,18 @@ const routes: Routes = [
     redirectTo: '/books',
     pathMatch: 'full',
   },
+  {
+    path: 'bücher',
+    loadChildren: () => import('./book/book.module').then((m) => m.BookModule),
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      enableTracing: false,
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
