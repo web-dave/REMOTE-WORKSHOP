@@ -1,4 +1,5 @@
-<app-search [(search)]="searchStr"></app-search>
+<app-search [(search)]="searchStr"></app-search
+><button routerLink="new">➕</button>
 <app-book-card
   [content]="book"
   (goto)="navigate($event)"

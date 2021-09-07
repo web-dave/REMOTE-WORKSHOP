@@ -26,4 +26,8 @@ export class BookService {
       book
     );
   }
+
+  createBook(book: IBook): Observable<IBook> {
+    return this.http.post<IBook>('http://localhost:4730/books/', book);
+  }
 }
