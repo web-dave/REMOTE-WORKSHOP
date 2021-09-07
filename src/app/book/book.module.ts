@@ -6,6 +6,8 @@ import { FilterBooksPipe } from './filter-books.pipe';
 import { SearchComponent } from './search/search.component';
 import { BookRoutingModule } from './book-routing.module';
 import { DetailsComponent } from './details/details.component';
+import { EditComponent } from './edit/edit.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,8 +16,9 @@ import { DetailsComponent } from './details/details.component';
     FilterBooksPipe,
     SearchComponent,
     DetailsComponent,
+    EditComponent,
   ],
-  imports: [CommonModule, BookRoutingModule],
+  imports: [CommonModule, FormsModule, BookRoutingModule],
   exports: [BookComponent],
 })
 export class BookModule {}

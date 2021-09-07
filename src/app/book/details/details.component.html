@@ -3,6 +3,7 @@
   <h4>{{ book.subtitle }}</h4>
   <p>{{ book.abstract }}</p>
   <img [src]="book.cover" [alt]="book.subtitle" />
+  <a [routerLink]="['../..', 'edit', book.isbn]">Edit</a>
 </div>
 
 <ng-template #noBook>
