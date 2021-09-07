@@ -19,4 +19,11 @@ export class BookService {
   getBook(isbn: string | null): Observable<IBook> {
     return this.http.get<IBook>('http://localhost:4730/books/' + isbn);
   }
+
+  updateBook(book: IBook): Observable<IBook> {
+    return this.http.put<IBook>(
+      'http://localhost:4730/books/' + book.isbn,
+      book
+    );
+  }
 }
