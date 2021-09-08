@@ -1,6 +1,8 @@
 import {
   AfterViewChecked,
+  ChangeDetectionStrategy,
   Component,
+  DoCheck,
   EventEmitter,
   OnDestroy,
   OnInit,
@@ -15,10 +17,12 @@ import { BookService } from './book.service';
   selector: 'app-book',
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BookComponent implements OnInit {
+export class BookComponent implements OnInit, DoCheck {
   searchStr = '';
   books$: Observable<IBook[]> = NEVER;
+  books: IBook[] = [];
   constructor(
     private bookService: BookService,
     private router: Router,
@@ -32,5 +36,20 @@ export class BookComponent implements OnInit {
   }
   ngOnInit(): void {
     this.books$ = this.bookService.getBooks();
+    this.books$.subscribe((data) => (this.books = data));
+
+    setInterval(() => {
+      const b: IBook = {
+        ...this.books[0],
+        numPages: this.books[0].numPages + 1,
+      };
+
+      this.books[0] = b;
+      console.log(this.books[0].numPages);
+    }, 2000);
+  }
+
+  ngDoCheck() {
+    console.log('Check mate!');
   }
 }

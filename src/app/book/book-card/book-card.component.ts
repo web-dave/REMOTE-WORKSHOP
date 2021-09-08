@@ -1,10 +1,18 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { IBook } from '../book.interface';
 
 @Component({
   selector: 'app-book-card',
   templateUrl: './book-card.component.html',
   styleUrls: ['./book-card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BookCardComponent implements OnInit {
   @Input() content: IBook = {
@@ -24,7 +32,6 @@ export class BookCardComponent implements OnInit {
     textShadow: '2pt 2pt #456789',
   };
   date = new Date();
-  constructor() {}
 
   ngOnInit(): void {}
 

@@ -1,7 +1,13 @@
 <app-search [(search)]="searchStr"></app-search
 ><button routerLink="new">➕</button>
+<button (click)="(false)">klhdsaödjfkhsa</button>
 <app-book-card
   [content]="book"
   (goto)="navigate($event)"
-  *ngFor="let book of books$ | async | filterBooks: searchStr"
+  *ngFor="let book of books | filterBooks: searchStr"
 ></app-book-card>
+<!-- <app-book-card
+  [content]="book"
+  (goto)="navigate($event)"
+  *ngFor="let book of books$ | async | filterBooks: searchStr"
+></app-book-card> -->
