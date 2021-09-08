@@ -48,16 +48,16 @@ export class BookComponent implements OnInit, DoCheck {
       this.cdr.detectChanges();
     });
 
-    setInterval(() => {
-      const b: IBook = {
-        ...this.books[0],
-        numPages: this.books[0].numPages + 1,
-      };
+    // setInterval(() => {
+    //   const b: IBook = {
+    //     ...this.books[0],
+    //     numPages: this.books[0].numPages + 1,
+    //   };
 
-      this.books[0] = b;
-      console.log(this.books[0].numPages);
-      this.cdr.markForCheck();
-    }, 2000);
+    //   this.books[0] = b;
+    //   console.log(this.books[0].numPages);
+    //   this.cdr.markForCheck();
+    // }, 2000);
   }
 
   ngDoCheck() {
