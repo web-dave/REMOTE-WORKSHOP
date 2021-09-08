@@ -1,6 +1,6 @@
 <app-search [(search)]="searchStr"></app-search
 ><button routerLink="new">➕</button>
-<button (click)="(false)">klhdsaödjfkhsa</button>
+<button (click)="(false)">{{ foo }}</button>
 <app-book-card
   [content]="book"
   (goto)="navigate($event)"
