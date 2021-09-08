@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { NEVER, Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { MsgService } from 'src/app/msg.service';
 import { IBook } from '../book.interface';
 import { BookService } from '../book.service';
 
@@ -13,8 +14,14 @@ import { BookService } from '../book.service';
 export class DetailsComponent implements OnInit {
   book$: Observable<IBook> = NEVER;
   data!: IBook;
-  constructor(private service: BookService, private route: ActivatedRoute) {}
-
+  messages: Observable<string> = NEVER;
+  constructor(
+    private service: BookService,
+    private route: ActivatedRoute,
+    private msg: MsgService
+  ) {
+    this.messages = this.msg.messages;
+  }
   ngOnInit(): void {
     // this.book$ = this.service.getBook(this.route.snapshot.paramMap.get('isbn'));
 

@@ -7,10 +7,12 @@ import {
   EventEmitter,
   OnDestroy,
   OnInit,
+  ViewChild,
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NEVER, Observable, Subscription } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { MsgService } from '../msg.service';
 import { IBook } from './book.interface';
 import { BookService } from './book.service';
 
@@ -29,7 +31,8 @@ export class BookComponent implements OnInit, DoCheck {
     private bookService: BookService,
     private router: Router,
     private route: ActivatedRoute,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private msg: MsgService
   ) {}
   // ngAfterViewChecked(): void {
   //   this.foo += '!';
@@ -37,6 +40,7 @@ export class BookComponent implements OnInit, DoCheck {
   // }
 
   navigate(book: IBook) {
+    this.msg.sendMsg('details' + book.isbn);
     this.router.navigate(['details', book.isbn], {
       relativeTo: this.route,
     });
