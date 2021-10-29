@@ -1,5 +1,11 @@
+<input type="text" (input)="updateSearch($event)" />
 <app-book-card
   [content]="book"
   (navigateTo)="showDetails($event)"
-  *ngFor="let book of books"
+  *ngFor="let book of books | bookFilter: searchTerm"
+></app-book-card>
+<app-book-card
+  [content]="book"
+  (navigateTo)="showDetails($event)"
+  *ngFor="let book of transform(books, searchTerm)"
 ></app-book-card>

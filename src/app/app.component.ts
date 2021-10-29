@@ -10,6 +10,7 @@ export class AppComponent {
   title = ' bookmonkey-client';
   foo = '🐵';
   bar = 'pojpjo';
+  searchTerm = '';
   books: IBook[] = [
     {
       title: 'How to win friends',
@@ -27,8 +28,24 @@ export class AppComponent {
       abstract: "START WITH WHY shows that the leaders who've ...",
     },
   ];
+  constructor() {
+    setInterval(() => {
+      this.searchTerm = 'to';
+    }, 1500);
+  }
 
   showDetails(data: IBook) {
     console.table(data);
+  }
+
+  updateSearch(event: Event) {
+    console.log(event);
+    this.searchTerm = (event.target as HTMLInputElement).value;
+  }
+  transform(books: IBook[] = [], search: string = ''): IBook[] {
+    console.log('fn', search);
+    return books.filter((book) =>
+      book.title.toLowerCase().includes(search.toLowerCase())
+    );
   }
 }
