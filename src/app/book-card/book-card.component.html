@@ -1,9 +1,12 @@
-<h3>Moby Dick</h3>
-<h4>Herman Melville</h4>
-<a href="#">Details</a>
-<p>
-  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio
-  laboriosam ullam voluptatum reiciendis! Rerum accusantium soluta, aspernatur
-  excepturi eius aliquid vitae officiis saepe dicta dolor similique. Culpa
-  labore hic maxime!
+<h1 *ngIf="x; else fallback">{{ x }}</h1>
+<h3>{{ content.title }}</h3>
+<h4 [class.hint]="myClass">{{ content.author }}</h4>
+<a href="#" (click)="handleDetailClick($event)">Details</a>
+<p [style]="styling">
+  {{ content.abstract }}
 </p>
+<span>{{ btn }}</span>
+<button>click</button>
+<ng-template #fallback>
+  <h1>click jetzt! Los!</h1>
+</ng-template>
