@@ -1,4 +1,12 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Optional,
+  Output,
+} from '@angular/core';
+import { BookCardComponent } from '../book-card/book-card.component';
 
 @Component({
   selector: 'app-search',
@@ -9,7 +17,8 @@ export class SearchComponent implements OnInit {
   @Input() term: string = '';
   @Output() termChange = new EventEmitter<string>();
 
-  constructor() {}
+  // Parent Injectortoken trick 17.5
+  // constructor(@Optional() parent: BookCardComponent) {}
 
   ngOnInit(): void {}
 

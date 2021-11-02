@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BookApiService } from './book-api.service';
 import { IBook } from './book.interface';
 
 @Component({
@@ -11,27 +12,12 @@ export class BookComponent implements OnInit {
   foo = '🐵';
   bar = 'pojpjo';
   searchTerm = '';
-  books: IBook[] = [
-    {
-      title: 'How to win friends',
-      author: 'Dale Carnegie',
-      abstract: 'How to Win Friends and Influence ...',
-    },
-    {
-      title: 'The Willpower Instinct: How Self-Control Works ...',
-      author: 'Kelly McGonigal',
-      abstract: 'Based on Stanford University ...',
-    },
-    {
-      author: 'Simon Sinek',
-      title: 'Start with WHY',
-      abstract: "START WITH WHY shows that the leaders who've ...",
-    },
-  ];
-  constructor() {
+  books: IBook[] = [];
+  constructor(private api: BookApiService) {
     // setInterval(() => {
     //   this.searchTerm = 'to';
     // }, 1500);
+    this.books = api.getAllBook();
   }
 
   showDetails(data: IBook) {
