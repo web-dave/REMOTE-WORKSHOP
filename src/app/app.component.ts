@@ -29,19 +29,19 @@ export class AppComponent {
     },
   ];
   constructor() {
-    setInterval(() => {
-      this.searchTerm = 'to';
-    }, 1500);
+    // setInterval(() => {
+    //   this.searchTerm = 'to';
+    // }, 1500);
   }
 
   showDetails(data: IBook) {
     console.table(data);
   }
 
-  updateSearch(event: Event) {
-    console.log(event);
-    this.searchTerm = (event.target as HTMLInputElement).value;
-  }
+  // updateSearch(event: Event) {
+  //   console.log(event);
+  //   this.searchTerm = (event.target as HTMLInputElement).value;
+  // }
   transform(books: IBook[] = [], search: string = ''): IBook[] {
     console.log('fn', search);
     return books.filter((book) =>

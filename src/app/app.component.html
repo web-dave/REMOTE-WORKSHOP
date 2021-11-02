@@ -1,11 +1,13 @@
-<input type="text" (input)="updateSearch($event)" />
+<!-- <input type="text" (input)="updateSearch($event)" /> -->
+<!-- (termChange)="searchTerm = $event" -->
+<app-search [(term)]="searchTerm"></app-search>
 <app-book-card
   [content]="book"
   (navigateTo)="showDetails($event)"
   *ngFor="let book of books | bookFilter: searchTerm"
 ></app-book-card>
-<app-book-card
+<!-- <app-book-card
   [content]="book"
   (navigateTo)="showDetails($event)"
   *ngFor="let book of transform(books, searchTerm)"
-></app-book-card>
+></app-book-card> -->
