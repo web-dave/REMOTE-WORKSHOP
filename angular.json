@@ -38,7 +38,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "lr",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
