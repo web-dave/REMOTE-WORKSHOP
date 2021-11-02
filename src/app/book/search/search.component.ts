@@ -1,28 +1,40 @@
 import {
+  AfterViewInit,
   Component,
   EventEmitter,
   Input,
   OnInit,
   Optional,
   Output,
+  ViewChild,
 } from '@angular/core';
-import { BookCardComponent } from '../book-card/book-card.component';
+import { fromEvent, NEVER, Observable } from 'rxjs';
+import { debounceTime, pluck } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent implements AfterViewInit {
   @Input() term: string = '';
   @Output() termChange = new EventEmitter<string>();
 
-  // Parent Injectortoken trick 17.5
-  // constructor(@Optional() parent: BookCardComponent) {}
+  @ViewChild('input') input: any;
 
-  ngOnInit(): void {}
+  foo$: Observable<string> = NEVER;
 
-  updateSearch(event: Event) {
-    this.termChange.emit((event.target as HTMLInputElement).value);
+  ngAfterViewInit(): void {
+    console.log(this.input.nativeElement);
+    this.foo$ = fromEvent(this.input.nativeElement, 'input').pipe(
+      debounceTime(300),
+      pluck('target', 'value')
+    );
+
+    this.foo$.subscribe((data) => this.updateSearch(data));
+  }
+
+  updateSearch(value: string) {
+    this.termChange.emit(value);
   }
 }

@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import { IBook } from './book.interface';
 
 @Injectable({
@@ -22,9 +25,11 @@ export class BookApiService {
       abstract: "START WITH WHY shows that the leaders who've ...",
     },
   ];
-  constructor() {}
 
-  getAllBook(): IBook[] {
-    return this.books;
+  constructor(private http: HttpClient) {}
+
+  getAllBook(): Observable<IBook[]> {
+    return this.http.get<IBook[]>('http://localhost:4730/books');
+    // return of(this.books).pipe(delay(1500));
   }
 }

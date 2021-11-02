@@ -17,11 +17,18 @@ export class BookComponent implements OnInit {
     // setInterval(() => {
     //   this.searchTerm = 'to';
     // }, 1500);
-    this.books = api.getAllBook();
+    // api.getAllBook().subscribe({
+    //   next: (data) => (this.books = data),
+    // });
+    api.getAllBook().subscribe(this.setBooks.bind(this)); //auch cool ;)
   }
 
   showDetails(data: IBook) {
     console.table(data);
+  }
+
+  setBooks(data: IBook[]) {
+    this.books = data;
   }
 
   // updateSearch(event: Event) {
@@ -36,3 +43,7 @@ export class BookComponent implements OnInit {
   }
   ngOnInit(): void {}
 }
+
+// function setBooks(data: IBook[]) {
+//   this.books = data;
+// }
