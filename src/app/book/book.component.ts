@@ -11,7 +11,7 @@ import { IBook } from './book.interface';
 })
 export class BookComponent implements OnInit, OnDestroy {
   title = ' bookmonkey-client';
-  foo = '🐵';
+  foo: IBook[] = [];
   bar = 'pojpjo';
   searchTerm = '';
   books$: Observable<IBook[]> = NEVER;
@@ -33,9 +33,10 @@ export class BookComponent implements OnInit, OnDestroy {
     this.books$ = this.api.getAllBooks();
     // this.sub.add(this.api.getAllBook().subscribe(this.setBooks.bind(this))); //auch cool ;)
 
-    this.api.books$
-      .pipe(takeWhile(() => !this.kill))
-      .subscribe((data) => console.log('======>', data));
+    this.api.books$.pipe(takeWhile(() => !this.kill)).subscribe((data) => {
+      console.log('======>', data);
+      this.foo = data;
+    });
   }
   ngOnDestroy() {
     // this.sub.unsubscribe();

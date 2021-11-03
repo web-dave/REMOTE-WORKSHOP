@@ -5,6 +5,7 @@ import { BookCardComponent } from './book-card/book-card.component';
 import { BookFilterPipe } from './pipes/book-filter.pipe';
 import { SearchComponent } from './search/search.component';
 import { ListComponent } from './list/list.component';
+import { BookRoutingModule } from './book-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { ListComponent } from './list/list.component';
     SearchComponent,
     ListComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, BookRoutingModule],
   exports: [BookComponent],
 })
 export class BookModule {}
