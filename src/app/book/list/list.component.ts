@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IBook } from '../book.interface';
 
 @Component({
@@ -6,9 +6,6 @@ import { IBook } from '../book.interface';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
 })
-export class ListComponent implements OnInit {
+export class ListComponent {
   @Input() filteredBooks: IBook[] = [];
-  constructor() {}
-
-  ngOnInit(): void {}
 }
