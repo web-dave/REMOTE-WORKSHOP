@@ -1,12 +1,11 @@
 <!-- <input type="text" (input)="updateSearch($event)" /> -->
 <!-- (termChange)="searchTerm = $event" -->
-
-<app-search [(term)]="searchTerm"></app-search>
-<app-book-card
-  [content]="book"
-  (navigateTo)="showDetails($event)"
-  *ngFor="let book of books | bookFilter: searchTerm"
-></app-book-card>
+<button (click)="kill = !kill">Kill</button>
+<ng-container *ngIf="books$ | async as books">
+  <h4>{{ books.length }}</h4>
+  <app-search [(term)]="searchTerm"></app-search>
+  <app-list [filteredBooks]="books | bookFilter: searchTerm"></app-list>
+</ng-container>
 <!-- <app-book-card
   [content]="book"
   (navigateTo)="showDetails($event)"

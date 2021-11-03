@@ -1,0 +1,5 @@
+<pre>{{ filteredBooks.length | json }}</pre>
+<app-book-card
+  [content]="book"
+  *ngFor="let book of filteredBooks"
+></app-book-card>

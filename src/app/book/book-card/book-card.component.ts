@@ -1,4 +1,6 @@
 import {
+  AfterViewChecked,
+  ChangeDetectorRef,
   Component,
   EventEmitter,
   Input,
@@ -13,10 +15,10 @@ import { IBook } from '../book.interface';
   templateUrl: './book-card.component.html',
   styleUrls: ['./book-card.component.scss'],
 })
-export class BookCardComponent implements OnInit {
+export class BookCardComponent implements OnInit, AfterViewChecked {
   @Input() content: IBook = { abstract: '', title: '', author: '' };
   @Output() navigateTo = new EventEmitter<IBook>();
-  x: number | undefined;
+  x: number = 42;
 
   styling = {
     color: 'purple',
@@ -26,12 +28,18 @@ export class BookCardComponent implements OnInit {
 
   myClass = true;
 
-  constructor(private snitizer: Sanitizer) {}
+  constructor(private snitizer: Sanitizer, private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     setTimeout(() => {
       // this.content.title = 'öxkjvhödjfhka';
     }, 1500);
+  }
+
+  ngAfterViewChecked() {
+    // setTimeout(() => (this.x = 7), 0);
+    // this.x = 7;
+    // this.cdr.detectChanges();
   }
 
   handleDetailClick(event: MouseEvent) {
