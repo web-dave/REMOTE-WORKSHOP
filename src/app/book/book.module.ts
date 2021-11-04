@@ -7,6 +7,7 @@ import { SearchComponent } from './search/search.component';
 import { ListComponent } from './list/list.component';
 import { BookRoutingModule } from './book-routing.module';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { BookApiService } from './book-api.service';
 
 @NgModule({
   declarations: [
@@ -19,5 +20,6 @@ import { BookDetailsComponent } from './book-details/book-details.component';
   ],
   imports: [CommonModule, BookRoutingModule],
   exports: [BookComponent],
+  providers: [BookApiService],
 })
 export class BookModule {}

@@ -7,12 +7,10 @@ import {
   ReplaySubject,
   AsyncSubject,
 } from 'rxjs';
-import { share, shareReplay } from 'rxjs/operators';
+import { shareReplay } from 'rxjs/operators';
 import { IBook } from './book.interface';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class BookApiService {
   private books: IBook[] = [];
 
