@@ -1,0 +1,11 @@
+<ng-container *ngIf="book$ | async as book">
+  <form #editform="ngForm" *ngIf="book">
+    <input type="text" [(ngModel)]="book.title" name="title" #title="ngModel" />
+    {{ title.dirty }}
+
+    <pre>{{ editform.value | json }}</pre>
+    <pre>{{ book | json }}</pre>
+  </form>
+</ng-container>
+
+<a [routerLink]="['..']">BACK</a>

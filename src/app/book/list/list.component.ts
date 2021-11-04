@@ -13,6 +13,6 @@ export class ListComponent {
   constructor(private router: Router, private route: ActivatedRoute) {}
 
   showDetails(data: IBook) {
-    this.router.navigate(['details', data.isbn], { relativeTo: this.route });
+    this.router.navigate([data.isbn], { relativeTo: this.route });
   }
 }

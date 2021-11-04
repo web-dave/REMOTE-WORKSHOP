@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { BookEditComponent } from './book-edit/book-edit.component';
 import { BookComponent } from './book.component';
 import { LeaveGuard } from './leave.guard';
 
@@ -10,9 +11,13 @@ const routes: Routes = [
     component: BookComponent,
   },
   {
-    path: 'details/:isbn',
+    path: ':isbn',
     component: BookDetailsComponent,
     canDeactivate: [LeaveGuard],
+  },
+  {
+    path: ':isbn/edit',
+    component: BookEditComponent,
   },
 ];
 @NgModule({

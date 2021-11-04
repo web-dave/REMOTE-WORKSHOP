@@ -8,6 +8,8 @@ import { ListComponent } from './list/list.component';
 import { BookRoutingModule } from './book-routing.module';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { BookApiService } from './book-api.service';
+import { BookEditComponent } from './book-edit/book-edit.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,8 +19,9 @@ import { BookApiService } from './book-api.service';
     SearchComponent,
     ListComponent,
     BookDetailsComponent,
+    BookEditComponent,
   ],
-  imports: [CommonModule, BookRoutingModule],
+  imports: [CommonModule, BookRoutingModule, FormsModule],
   exports: [BookComponent],
   providers: [BookApiService],
 })
