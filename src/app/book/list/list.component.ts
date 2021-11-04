@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IBook } from '../book.interface';
 
 @Component({
@@ -8,4 +9,10 @@ import { IBook } from '../book.interface';
 })
 export class ListComponent {
   @Input() filteredBooks: IBook[] = [];
+
+  constructor(private router: Router, private route: ActivatedRoute) {}
+
+  showDetails(data: IBook) {
+    this.router.navigate(['details', data.isbn], { relativeTo: this.route });
+  }
 }

@@ -1,7 +1,7 @@
 <h1 *ngIf="x; else fallback">{{ x }}</h1>
 <h3>{{ content.title }}</h3>
 <h4 [class.hint]="myClass">{{ content.author }}</h4>
-<a href="#" (click)="handleDetailClick($event)">Details</a>
+<button (click)="handleDetailClick($event)">Details</button>
 <p [style]="styling">
   {{ content.abstract }}
 </p>

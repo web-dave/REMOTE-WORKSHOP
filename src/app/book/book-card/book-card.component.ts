@@ -16,7 +16,7 @@ import { IBook } from '../book.interface';
   styleUrls: ['./book-card.component.scss'],
 })
 export class BookCardComponent implements OnInit, AfterViewChecked {
-  @Input() content: IBook = { abstract: '', title: '', author: '' };
+  @Input() content!: IBook;
   @Output() navigateTo = new EventEmitter<IBook>();
   x: number = 42;
 

@@ -1,5 +1,6 @@
 <pre>{{ filteredBooks.length | json }}</pre>
 <app-book-card
   [content]="book"
+  (navigateTo)="showDetails($event)"
   *ngFor="let book of filteredBooks"
 ></app-book-card>

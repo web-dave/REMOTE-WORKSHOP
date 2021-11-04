@@ -14,23 +14,7 @@ import { IBook } from './book.interface';
   providedIn: 'root',
 })
 export class BookApiService {
-  private books: IBook[] = [
-    {
-      title: 'How to win friends',
-      author: 'Dale Carnegie',
-      abstract: 'How to Win Friends and Influence ...',
-    },
-    {
-      title: 'The Willpower Instinct: How Self-Control Works ...',
-      author: 'Kelly McGonigal',
-      abstract: 'Based on Stanford University ...',
-    },
-    {
-      author: 'Simon Sinek',
-      title: 'Start with WHY',
-      abstract: "START WITH WHY shows that the leaders who've ...",
-    },
-  ];
+  private books: IBook[] = [];
 
   books$$ = new BehaviorSubject<IBook[]>([]);
   books$ = this.books$$.asObservable();
@@ -46,6 +30,9 @@ export class BookApiService {
       .get<IBook[]>('http://localhost:4730/books')
       .pipe(shareReplay());
     // return of(this.books).pipe(delay(1500));
+  }
+  getBook(isbn: string): Observable<IBook> {
+    return this.http.get<IBook>('http://localhost:4730/books/' + isbn);
   }
 
   get2ndBook() {

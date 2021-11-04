@@ -21,10 +21,6 @@ export class BookComponent implements OnInit, OnDestroy {
 
   constructor(private api: BookApiService) {}
 
-  showDetails(data: IBook) {
-    console.table(data);
-  }
-
   // setBooks(data: IBook[]) {
   //   this.books = data;
   // }
