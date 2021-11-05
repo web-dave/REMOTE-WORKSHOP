@@ -92,12 +92,11 @@ export class BookNewComponent implements OnInit {
       return ctrl.valueChanges.pipe(
         debounceTime(1500),
         distinctUntilChanged(),
-        tap((data) => console.log(data)),
         switchMap((isbn) =>
-          this.api.getBook(isbn).pipe(
-            map((book) => !book.isbn),
+          this.api.checkIsbn(isbn).pipe(
             map((unique) => (unique ? null : { isbn_exits: true })),
-            first()
+            first(),
+            tap((data) => console.log(data))
           )
         )
       );

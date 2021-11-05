@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import {
   BehaviorSubject,
@@ -7,7 +8,7 @@ import {
   ReplaySubject,
   AsyncSubject,
 } from 'rxjs';
-import { shareReplay } from 'rxjs/operators';
+import { map, shareReplay } from 'rxjs/operators';
 import { IBook } from './book.interface';
 
 @Injectable()
@@ -31,6 +32,13 @@ export class BookApiService {
   }
   getBook(isbn: string): Observable<IBook> {
     return this.http.get<IBook>('http://localhost:4730/books/' + isbn);
+  }
+
+  checkIsbn(isbn: string): Observable<boolean> {
+    return this.getAllBooks().pipe(
+      map((books: IBook[]) => books.map((book) => book?.isbn)),
+      map((isbnse: string[]) => !isbnse.includes(isbn))
+    );
   }
 
   get2ndBook() {
