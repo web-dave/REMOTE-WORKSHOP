@@ -1,10 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import {
+  AbstractControl,
+  AsyncValidatorFn,
   FormBuilder,
   FormControl,
   FormGroup,
+  ValidationErrors,
   Validators,
 } from '@angular/forms';
+import { Observable, of } from 'rxjs';
+import {
+  debounceTime,
+  distinctUntilChanged,
+  first,
+  map,
+  switchMap,
+  tap,
+} from 'rxjs/operators';
+import { BookApiService } from '../book-api.service';
 
 @Component({
   selector: 'app-book-new',
@@ -24,7 +37,7 @@ export class BookNewComponent implements OnInit {
     'price',
     'cover',
   ];
-  constructor(private builder: FormBuilder) {}
+  constructor(private builder: FormBuilder, private api: BookApiService) {}
 
   ngOnInit(): void {
     const requiredFields = ['title', 'isbn', 'author', 'price'];
@@ -47,6 +60,7 @@ export class BookNewComponent implements OnInit {
         );
       }
     }
+    this.bookForm.get('isbn')?.addAsyncValidators(this.asyncIsbnValidator());
 
     this.bookForm.get('price')?.valueChanges.subscribe((data: string) => {
       if (data.length >= 3) {
@@ -71,5 +85,22 @@ export class BookNewComponent implements OnInit {
     //   price: '',
     //   cover: '',
     // });
+  }
+
+  asyncIsbnValidator(): AsyncValidatorFn {
+    return (ctrl: AbstractControl): Observable<ValidationErrors | null> => {
+      return ctrl.valueChanges.pipe(
+        debounceTime(1500),
+        distinctUntilChanged(),
+        tap((data) => console.log(data)),
+        switchMap((isbn) =>
+          this.api.getBook(isbn).pipe(
+            map((book) => !book.isbn),
+            map((unique) => (unique ? null : { isbn_exits: true })),
+            first()
+          )
+        )
+      );
+    };
   }
 }

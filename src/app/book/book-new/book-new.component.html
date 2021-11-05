@@ -5,5 +5,7 @@
     <input type="text" [formControlName]="field" />
     <span [hidden]="!bookForm.get(field)?.hasError('required')">💥</span><br />
   </div>
+  <span [hidden]="!bookForm.get('isbn')?.hasError('isbn_exits')">Dublicate</span
+  ><br />
 </form>
 <pre>{{ bookForm.value | json }}</pre>
