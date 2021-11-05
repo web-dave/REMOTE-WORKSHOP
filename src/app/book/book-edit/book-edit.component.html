@@ -1,10 +1,44 @@
 <ng-container *ngIf="book$ | async as book">
   <form #editform="ngForm" *ngIf="book">
-    <input type="text" [(ngModel)]="book.title" name="title" #title="ngModel" />
-    {{ title.dirty }}
-
-    <pre>{{ editform.value | json }}</pre>
-    <pre>{{ book | json }}</pre>
+    <label for="title">Title</label>
+    <input
+      type="text"
+      [(ngModel)]="book.title"
+      name="title"
+      #title="ngModel"
+      required
+    />
+    <span [hidden]="!title.errors?.required">💥</span><br />
+    <label for="subtitle">Subtitle</label>
+    <input
+      type="text"
+      [(ngModel)]="book.subtitle"
+      name="subtitle"
+      #subtitle="ngModel"
+      required
+      minlength="4"
+    />
+    <span [hidden]="!subtitle.errors?.required">💥</span><br />
+    <label for="price">Price</label>
+    <input
+      type="text"
+      [(ngModel)]="book.price"
+      name="price"
+      #price="ngModel"
+      required
+    />
+    <span [hidden]="!price.errors?.required">💥</span><br />
+    <label for="author">Author</label>
+    <input
+      type="text"
+      [(ngModel)]="book.author"
+      name="author"
+      #author="ngModel"
+      required
+    />
+    <span [hidden]="!author.errors?.required">💥</span>
+    <!-- <pre>{{ editform.value | json }}</pre>
+    <pre>{{ book | json }}</pre> -->
   </form>
 </ng-container>
 

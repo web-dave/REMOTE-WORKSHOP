@@ -1,0 +1,9 @@
+<form [formGroup]="bookForm">
+  <div *ngFor="let field of fields">
+    <label [for]="field">{{ field | uppercase }}</label
+    ><br />
+    <input type="text" [formControlName]="field" />
+    <span [hidden]="!bookForm.get(field)?.hasError('required')">💥</span><br />
+  </div>
+</form>
+<pre>{{ bookForm.value | json }}</pre>
