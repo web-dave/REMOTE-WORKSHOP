@@ -8,12 +8,17 @@ import {
   ReplaySubject,
   AsyncSubject,
 } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { webSocket } from 'rxjs/webSocket';
+import { filter, map, shareReplay } from 'rxjs/operators';
 import { IBook } from './book.interface';
 
 @Injectable()
 export class BookApiService {
   private books: IBook[] = [];
+
+  socket = webSocket(
+    'wss://demo.piesocket.com/v3/channel_1?api_key=oCdCMcMPQpbvNjUIzqtvF1d2X2okWpDQj4AwARJuAgtjhzKxVEjQU6IdCjwm&notify_self'
+  );
 
   books$$ = new BehaviorSubject<IBook[]>([]);
   books$ = this.books$$.asObservable();
@@ -22,9 +27,14 @@ export class BookApiService {
     this.books$$.next([]);
     this.books$$.next([this.books[0]]);
     setInterval(() => this.books$$.next([]), 1600);
+
+    this.socket
+      .pipe(filter((data: any) => data.hurz === 'Wolf'))
+      .subscribe((data) => console.log('socket', data));
   }
 
   getAllBooks(): Observable<IBook[]> {
+    this.socket.next({ message: 'Moin L & R' });
     return this.http
       .get<IBook[]>('http://localhost:4730/books')
       .pipe(shareReplay());
