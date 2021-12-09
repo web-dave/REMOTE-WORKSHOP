@@ -14,5 +14,6 @@ import { BookComponent } from './book.component';
   ],
   exports: [BookComponent],
   imports: [CommonModule],
+  providers: [],
 })
 export class BookModule {}

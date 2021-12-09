@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BookApiService } from './book-api.service';
 import { IBook } from './book.interface';
 
 @Component({
@@ -8,25 +9,11 @@ import { IBook } from './book.interface';
 })
 export class BookComponent {
   bookSearchTerm = '';
-  books: IBook[] = [
-    {
-      title: 'How to win friends',
-      author: 'Dale Carnegie',
-      abstract: 'How to Win Friends and Influence ...',
-    },
-    {
-      title: 'The Willpower Instinct: How Self-Control Works ...',
-      author: 'Kelly McGonigal',
-      abstract: 'Based on Stanford University ...',
-    },
-    {
-      author: 'Simon Sinek',
-      title: 'Start with WHY',
-      abstract: "START WITH WHY shows that the leaders who've ...",
-    },
-  ];
+  books: IBook[] = [];
 
-  constructor() {}
+  constructor(private service: BookApiService) {
+    this.service.getBooks().subscribe((data) => (this.books = data));
+  }
   pong(e: IBook) {
     console.table(e);
   }
