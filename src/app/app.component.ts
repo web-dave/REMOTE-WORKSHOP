@@ -7,4 +7,6 @@ import { IBook } from './book/book.interface';
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.Emulated,
 })
-export class AppComponent {}
+export class AppComponent {
+  show = true;
+}
