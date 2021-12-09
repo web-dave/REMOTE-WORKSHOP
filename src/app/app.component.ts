@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { IBook } from './book.interface';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class AppComponent {
-  book = {
+  book: IBook = {
     title: 'How to win friends',
     author: 'Dale Carnegie',
     abstract:
