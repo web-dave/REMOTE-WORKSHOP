@@ -7,6 +7,7 @@ import {
 import { BookApiService } from './book-api.service';
 import { IBook } from './book.interface';
 import { NEVER, Observable } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-book',
@@ -20,6 +21,8 @@ export class BookComponent implements OnInit, AfterViewChecked {
 
   constructor(
     private service: BookApiService,
+    private router: Router,
+    private route: ActivatedRoute,
     private cdr: ChangeDetectorRef
   ) {}
 
@@ -31,7 +34,8 @@ export class BookComponent implements OnInit, AfterViewChecked {
     this.foo = 'Grete';
     this.cdr.detectChanges();
   }
-  pong(e: IBook) {
+  goToDetails(e: IBook) {
     console.table(e);
+    this.router.navigate([e.isbn], { relativeTo: this.route });
   }
 }

@@ -1,0 +1,19 @@
+<div class="coupon" *ngIf="book$ | async as book">
+  <div class="container">
+    <h3>{{ book.title }}</h3>
+  </div>
+  <img [src]="book.cover" [alt]="book.title" style="width: 100%" />
+  <div class="container" style="background-color: white">
+    <h2>
+      <b>{{ book.subtitle }}</b>
+    </h2>
+    <p>{{ book.abstract }}</p>
+  </div>
+  <div class="container">
+    <p>
+      {{ book.publisher }}: <span class="promo">{{ book.price }}</span>
+    </p>
+    <p class="expire">{{ book.numPages }}</p>
+  </div>
+</div>
+<a routerLink="..">back</a>

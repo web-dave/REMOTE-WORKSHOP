@@ -5,7 +5,7 @@
   <app-book-card
     [content]="book"
     *ngIf="book.title"
-    (ping)="pong($event)"
+    (ping)="goToDetails($event)"
   ></app-book-card>
 </ng-container>
 <!-- {{ foo }} -->

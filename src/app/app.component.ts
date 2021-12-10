@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 import { IBook } from './book/book.interface';
 
 @Component({
@@ -8,5 +9,5 @@ import { IBook } from './book/book.interface';
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class AppComponent {
-  show = true;
+  constructor(private router: Router) {}
 }
