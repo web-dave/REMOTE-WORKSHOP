@@ -5,8 +5,11 @@ import { IBook } from '../book.interface';
   name: 'bookFilter',
 })
 export class BookFilterPipe implements PipeTransform {
-  transform(books: IBook[], searchTerm: string): IBook[] {
+  transform(books: IBook[] | null, searchTerm: string): IBook[] {
     console.log('pipe', searchTerm);
+    if (books === null) {
+      books = [];
+    }
     return books.filter((book) =>
       book.title.toLowerCase().includes(searchTerm.toLowerCase())
     );

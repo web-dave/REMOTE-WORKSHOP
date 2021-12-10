@@ -2,26 +2,21 @@ import {
   AfterViewChecked,
   ChangeDetectorRef,
   Component,
-  EventEmitter,
-  OnDestroy,
   OnInit,
 } from '@angular/core';
 import { BookApiService } from './book-api.service';
 import { IBook } from './book.interface';
-import { map, takeUntil } from 'rxjs/operators';
-import { Subscription } from 'rxjs';
+import { NEVER, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.scss'],
 })
-export class BookComponent implements OnInit, OnDestroy, AfterViewChecked {
+export class BookComponent implements OnInit, AfterViewChecked {
   bookSearchTerm = '';
   foo = 'Hans';
-  books: IBook[] = [];
-  private sub = Subscription.EMPTY;
-  $kill = new EventEmitter();
+  books$: Observable<IBook[]> = NEVER;
 
   constructor(
     private service: BookApiService,
@@ -29,24 +24,9 @@ export class BookComponent implements OnInit, OnDestroy, AfterViewChecked {
   ) {}
 
   ngOnInit(): void {
-    this.sub = this.service
-      .getBooks()
-      .pipe(
-        map((book) => {
-          book[0].title += ' 🦄';
-          return book;
-        })
-      )
-      .subscribe((data) => (this.books = data));
-    this.service
-      .getBooks()
-      .pipe(takeUntil(this.$kill))
-      .subscribe((data) => (this.books = data));
+    this.books$ = this.service.getBooks();
   }
-  ngOnDestroy(): void {
-    this.sub.unsubscribe();
-    this.$kill.emit();
-  }
+
   ngAfterViewChecked(): void {
     this.foo = 'Grete';
     this.cdr.detectChanges();
