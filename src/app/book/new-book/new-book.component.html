@@ -1,0 +1,7 @@
+<p>new-book works!</p>
+<form [formGroup]="form" (ngSubmit)="saveBook()">
+  <label for="isbn">ISBN:</label> <input type="text" formControlName="isbn" />
+  <span [hidden]="!form.controls.isbn.hasError('required')">⚠️</span>
+  <span [hidden]="!form.controls.title.hasError('required')">⚠️!!!</span>
+  <button type="submit" [disabled]="!form.valid">Save</button>
+</form>

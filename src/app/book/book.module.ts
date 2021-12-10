@@ -6,6 +6,8 @@ import { SearchComponent } from './search/search.component';
 import { BookComponent } from './book.component';
 import { BookRoutingModule } from './book-routing.module';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { NewBookComponent } from './new-book/new-book.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,9 +16,10 @@ import { BookDetailsComponent } from './book-details/book-details.component';
     SearchComponent,
     BookComponent,
     BookDetailsComponent,
+    NewBookComponent,
   ],
   exports: [BookComponent],
-  imports: [CommonModule, BookRoutingModule],
+  imports: [CommonModule, BookRoutingModule, ReactiveFormsModule],
   providers: [],
 })
 export class BookModule {}
