@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { IBook } from '../book.interface';
 
 @Component({
   selector: 'app-book-card',
@@ -6,7 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./book-card.component.scss'],
 })
 export class BookCardComponent implements OnInit {
-  @Input() content: any;
+  @Input() content: IBook = { title: '', abstract: '', author: '' };
+  @Output() detailsClick = new EventEmitter<IBook>();
   customStyles = {
     color: 'hotpink',
     fontSize: '40px',
@@ -15,5 +17,10 @@ export class BookCardComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.content);
+  }
+
+  handleDetailClick(event: MouseEvent) {
+    console.log(event.target, (event.target as HTMLButtonElement).innerText);
+    this.detailsClick.emit(this.content);
   }
 }

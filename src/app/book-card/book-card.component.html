@@ -1,9 +1,6 @@
 <h3>{{ content.title }}</h3>
 <h4>{{ content.author }}</h4>
-<a [style]="customStyles">...</a>
+<button (click)="handleDetailClick($event)" [style]="customStyles">...</button>
 <p>
   {{ content.abstract }}
 </p>
-<!--
-... link, abstract ...
--->
