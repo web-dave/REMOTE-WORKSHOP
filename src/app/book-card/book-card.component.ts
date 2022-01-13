@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-book-card',
   templateUrl: './book-card.component.html',
-  styleUrls: ['./book-card.component.scss']
+  styleUrls: ['./book-card.component.scss'],
 })
 export class BookCardComponent implements OnInit {
-
-  constructor() { }
+  @Input() content: any;
+  customStyles = {
+    color: 'hotpink',
+    fontSize: '40px',
+  };
+  constructor() {}
 
   ngOnInit(): void {
+    console.log(this.content);
   }
-
 }

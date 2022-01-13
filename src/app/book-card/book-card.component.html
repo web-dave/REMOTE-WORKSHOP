@@ -1,11 +1,8 @@
-<h3>Moby Dick</h3>
-<h4>Herman Melville</h4>
-<a>...</a>
+<h3>{{ content.title }}</h3>
+<h4>{{ content.author }}</h4>
+<a [style]="customStyles">...</a>
 <p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla iure ex
-  perferendis eligendi nam laboriosam velit porro quasi earum mollitia,
-  excepturi ut voluptatibus cumque pariatur? Error, adipisci vitae. Hic,
-  dolores.
+  {{ content.abstract }}
 </p>
 <!--
 ... link, abstract ...
