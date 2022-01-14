@@ -7,8 +7,10 @@ import { IBook } from './book.interface';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  search = '';
   title = 'bookmonkey-client';
   foo = 'Bar';
+
   books: IBook[] = [
     {
       title: 'How to win friends',
@@ -26,8 +28,22 @@ export class AppComponent {
       abstract: "START WITH WHY shows that the leaders who've ...",
     },
   ];
+  constructor() {
+    // setInterval(() => (this.search = 'WHY'), 1500);
+  }
 
   navigateToDetails(data: IBook) {
     console.log('Data:', data);
   }
+
+  // updateSearch(event: string) {
+  //   this.search = event;
+  // }
+
+  // transform(books: IBook[], searchString: string): IBook[] {
+  //   console.log('METHOD', searchString);
+  //   return books.filter((book) =>
+  //     book.title.toLowerCase().includes(searchString.toLowerCase())
+  //   );
+  // }
 }
