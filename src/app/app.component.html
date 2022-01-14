@@ -1,9 +1,4 @@
-<app-search-book [(search)]="search"></app-search-book>
-<app-book-card
-  [content]="book"
-  (detailsClick)="navigateToDetails($event)"
-  *ngFor="let book of books | bookFilter: search"
-></app-book-card>
+<app-book></app-book>
 <!-- <hr />
 <app-book-card
   [content]="book"
