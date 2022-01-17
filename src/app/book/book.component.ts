@@ -1,5 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnDestroy, OnInit, EventEmitter } from '@angular/core';
+import { NEVER, Observable, Subscription } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { BookApiService } from './book-api.service';
 import { IBook } from './book.interface';
 
@@ -8,33 +9,18 @@ import { IBook } from './book.interface';
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.scss'],
 })
-export class BookComponent implements OnInit, OnDestroy {
+export class BookComponent implements OnInit {
   search = '';
   show = true;
-  books: IBook[] = [];
-  private sub = Subscription.EMPTY;
+  books$: Observable<IBook[]> = NEVER;
+
   constructor(private service: BookApiService) {}
 
   ngOnInit(): void {
-    // Deprecated
-    this.sub.add(this.service.getBooks().subscribe((data) => {}));
-    console.log('1');
-
-    const f = this.service.getBooks().subscribe({
-      next: (data) => {
-        this.books = data;
-        console.log(2);
-      },
-      complete: () => console.log(3),
-    });
-    this.sub.add(f);
+    this.books$ = this.service.getBooks();
   }
 
   navigateToDetails(data: IBook) {
     console.log('Data:', data);
-  }
-
-  ngOnDestroy(): void {
-    this.sub.unsubscribe();
   }
 }

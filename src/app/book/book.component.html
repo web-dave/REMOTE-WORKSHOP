@@ -1,9 +1,15 @@
 <app-search-book [(search)]="search"></app-search-book>
 <button (click)="show = !show">show</button>
+<span
+  >{{ (books$ | async)?.length }}/{{
+    (books$ | async | bookFilter: search)?.length
+  }}</span
+>
+
 <ng-container *ngIf="show">
   <app-book-card
     [content]="book"
     (detailsClick)="navigateToDetails($event)"
-    *ngFor="let book of books | bookFilter: search"
+    *ngFor="let book of books$ | async | bookFilter: search"
   ></app-book-card>
 </ng-container>
