@@ -1,6 +1,9 @@
 <app-search-book [(search)]="search"></app-search-book>
-<app-book-card
-  [content]="book"
-  (detailsClick)="navigateToDetails($event)"
-  *ngFor="let book of books | bookFilter: search"
-></app-book-card>
+<button (click)="show = !show">show</button>
+<ng-container *ngIf="show">
+  <app-book-card
+    [content]="book"
+    (detailsClick)="navigateToDetails($event)"
+    *ngFor="let book of books | bookFilter: search"
+  ></app-book-card>
+</ng-container>

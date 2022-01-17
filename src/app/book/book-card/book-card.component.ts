@@ -16,6 +16,7 @@ export class BookCardComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
+    // setInterval(() => console.log('Moin'), 1500);
     console.log(this.content);
   }
 

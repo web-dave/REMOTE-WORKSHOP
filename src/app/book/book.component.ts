@@ -9,9 +9,19 @@ import { IBook } from './book.interface';
 })
 export class BookComponent implements OnInit {
   search = '';
+  show = true;
   books: IBook[] = [];
   constructor(private service: BookApiService) {
-    this.books = this.service.getBooks();
+    // Deprecated
+    // this.service.getBooks().subscribe((data) => (this.books = data));
+    console.log('1');
+    this.service.getBooks().subscribe({
+      next: (data) => {
+        this.books = data;
+        console.log(2);
+      },
+      complete: () => console.log(3),
+    });
   }
 
   ngOnInit(): void {}
