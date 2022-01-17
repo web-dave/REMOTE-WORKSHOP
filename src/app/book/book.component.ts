@@ -17,15 +17,17 @@ export class BookComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // Deprecated
-    this.service.getBooks().subscribe((data) => {});
+    this.sub.add(this.service.getBooks().subscribe((data) => {}));
     console.log('1');
-    this.sub = this.service.getBooks().subscribe({
+
+    const f = this.service.getBooks().subscribe({
       next: (data) => {
         this.books = data;
         console.log(2);
       },
       complete: () => console.log(3),
     });
+    this.sub.add(f);
   }
 
   navigateToDetails(data: IBook) {
