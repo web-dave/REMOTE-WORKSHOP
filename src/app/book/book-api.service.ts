@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { IBook } from './book.interface';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { share } from 'rxjs/operators';
 
