@@ -1,22 +1,30 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { BookDetailComponent } from './book/book-detail/book-detail.component';
-import { BookComponent } from './book/book.component';
+import {
+  RouterModule,
+  Routes,
+  NoPreloading,
+  PreloadAllModules,
+} from '@angular/router';
 const routes: Routes = [
   {
     path: '',
     redirectTo: '/books',
     pathMatch: 'full',
   },
-  { path: 'books', component: BookComponent },
   {
-    path: 'books/details/:isbn',
-    component: BookDetailComponent,
-    data: { name: 'Hallo Welt' },
+    path: 'about',
+    loadChildren: () =>
+      import('./about/about.module').then((m) => m.AboutModule),
+  },
+  {
+    path: 'books',
+    loadChildren: () => import('./book/book.module').then((m) => m.BookModule),
   },
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

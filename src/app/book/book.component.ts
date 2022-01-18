@@ -26,7 +26,7 @@ export class BookComponent implements OnInit {
   }
 
   navigateToDetails(data: IBook) {
-    console.log('Data:', data);
+    console.log('Data: ', data);
     this.router.navigate(['details', data.isbn], { relativeTo: this.route });
   }
 }
