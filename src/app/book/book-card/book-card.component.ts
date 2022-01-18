@@ -7,7 +7,17 @@ import { IBook } from '../book.interface';
   styleUrls: ['./book-card.component.scss'],
 })
 export class BookCardComponent implements OnInit {
-  @Input() content: IBook = { title: '', abstract: '', author: '' };
+  @Input() content: IBook = {
+    title: '',
+    abstract: '',
+    author: '',
+    subtitle: '',
+    isbn: '',
+    numPages: 0,
+    publisher: '',
+    price: '',
+    cover: '',
+  };
   @Output() detailsClick = new EventEmitter<IBook>();
   customStyles = {
     color: 'hotpink',
@@ -17,7 +27,7 @@ export class BookCardComponent implements OnInit {
 
   ngOnInit(): void {
     // setInterval(() => console.log('Moin'), 1500);
-    console.log(this.content);
+    // console.log(this.content);
   }
 
   handleDetailClick(event: MouseEvent) {
