@@ -1,10 +1,17 @@
-<app-search-book [(search)]="search"></app-search-book>
-<button (click)="show = !show">show</button>
-<span
+<app-search-book
+  [(search)]="search"
+  [info]="
+    (books$ | async)?.length +
+    '/' +
+    (books$ | async | bookFilter: search)?.length
+  "
+></app-search-book>
+<!-- <button (click)="show = !show">show</button> -->
+<!-- <span
   >{{ (books$ | async)?.length }}/{{
     (books$ | async | bookFilter: search)?.length
   }}</span
->
+> -->
 
 <ng-container *ngIf="show">
   <app-book-card
