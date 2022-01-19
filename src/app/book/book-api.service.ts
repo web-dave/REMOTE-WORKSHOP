@@ -18,4 +18,8 @@ export class BookApiService {
   getBook(isbn: string): Observable<IBook> {
     return this.http.get<IBook>('http://localhost:4730/books/' + isbn);
   }
+
+  saveBook(data: IBook): Observable<IBook> {
+    return this.http.post<IBook>('http://localhost:4730/books', data);
+  }
 }

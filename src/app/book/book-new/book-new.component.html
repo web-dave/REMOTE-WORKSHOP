@@ -1,0 +1,13 @@
+<form [formGroup]="bookForm" (ngSubmit)="saveBook()">
+  <ng-container *ngFor="let key of keys">
+    <label for="key">{{ key }}:</label>
+
+    <input type="text" *ngIf="key !== 'ebook'" [formControlName]="key" />
+    <input type="checkbox" *ngIf="key === 'ebook'" [formControlName]="key" />
+    <br />
+  </ng-container>
+
+  <button type="submit" [disabled]="!bookForm.valid">save</button>
+</form>
+
+{{ keys }}
