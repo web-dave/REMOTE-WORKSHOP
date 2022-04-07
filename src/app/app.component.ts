@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IBook } from 'src/models/book.interface';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = '<h1>bookmonkey-client!!!!🦄</h1>';
-  book = {
+  book: IBook = {
     title: 'How to win friends',
     author: 'Dale Carnegie',
     abstract: 'In this book ...',
