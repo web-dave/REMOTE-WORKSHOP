@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IBook } from 'src/models/book.interface';
 
 @Component({
@@ -8,6 +8,7 @@ import { IBook } from 'src/models/book.interface';
 })
 export class BookCardComponent implements OnInit {
   @Input() content: IBook = { title: '', author: '', abstract: '' };
+  @Output() bookSelected = new EventEmitter<IBook>();
   customStyles = {
     backgroundColor: 'hotpink',
     color: 'purple',
@@ -15,4 +16,9 @@ export class BookCardComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  handleEvent(e: Event) {
+    console.log(e.target as HTMLButtonElement);
+    this.bookSelected.emit(this.content);
+  }
 }

@@ -1,1 +1,4 @@
-<app-book-card [content]="book"></app-book-card>
+<app-book-card
+  [content]="book"
+  (bookSelected)="goToBook($event)"
+></app-book-card>
