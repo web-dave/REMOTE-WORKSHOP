@@ -1,0 +1,6 @@
+<app-search [(searchTerm)]="searchTerm"></app-search>
+<app-book-card
+  [content]="book"
+  (bookSelected)="goToBook($event)"
+  *ngFor="let book of books | bookSearch: searchTerm"
+></app-book-card>

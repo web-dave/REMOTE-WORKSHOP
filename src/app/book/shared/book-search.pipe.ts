@@ -7,7 +7,6 @@ import { IBook } from 'src/models/book.interface';
 })
 export class BookSearchPipe implements PipeTransform {
   transform(books: IBook[], searchTerm: string): IBook[] {
-    console.log('pipe', searchTerm);
     return searchTerm === ''
       ? books
       : books.filter((book) =>

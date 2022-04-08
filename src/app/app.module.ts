@@ -2,21 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { BookCardComponent } from './book-card/book-card.component';
-import { BookSearchPipe } from './shared/book-search.pipe';
-import { SearchComponent } from './search/search.component';
-
+import { BookModule } from './book/book.module';
 @NgModule({
-  declarations: [
-    AppComponent,
-    BookCardComponent,
-    BookSearchPipe,
-    SearchComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule, BookModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
