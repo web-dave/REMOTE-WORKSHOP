@@ -7,6 +7,7 @@ import { IBook } from 'src/models/book.interface';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  searchTerm = '';
   title = '<h1>bookmonkey-client!!!!🦄</h1>';
   books: IBook[] = [
     {
@@ -25,6 +26,7 @@ export class AppComponent {
       abstract: "START WITH WHY shows that the leaders who've ...",
     },
   ];
+
   goToBook(e: IBook) {
     console.table(e);
   }
