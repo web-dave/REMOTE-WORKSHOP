@@ -9,8 +9,10 @@ export class BookSearchPipe implements PipeTransform {
   transform(books: IBook[], searchTerm: string): IBook[] {
     return searchTerm === ''
       ? books
-      : books.filter((book) =>
-          book.title.toLowerCase().includes(searchTerm.toLowerCase())
+      : books.filter(
+          (book) =>
+            book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            book.abstract?.toLowerCase().includes(searchTerm.toLowerCase())
         );
   }
 }

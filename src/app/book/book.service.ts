@@ -1,6 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { map, delay } from 'rxjs/operators';
+import { map, delay, tap } from 'rxjs/operators';
 import { IBook } from 'src/models/book.interface';
 
 @Injectable({
@@ -25,10 +26,10 @@ export class BookService {
     },
   ];
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   getBooks(): Observable<IBook[]> {
-    return of(this.books).pipe(
+    return this.http.get<IBook[]>('http://localhost:4730/books').pipe(
       delay(1500),
       map((books) =>
         books.map((data) => {
