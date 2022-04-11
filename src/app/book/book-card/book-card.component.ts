@@ -6,6 +6,7 @@ import {
   Input,
   OnInit,
   Output,
+  ViewEncapsulation,
 } from '@angular/core';
 import { IBook } from 'src/models/book.interface';
 
