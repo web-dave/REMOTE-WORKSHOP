@@ -10,21 +10,4 @@ import { BookService } from './book.service';
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.scss'],
 })
-export class BookComponent implements OnInit {
-  searchTerm = '';
-  books$: Observable<IBook[]> = NEVER;
-
-  constructor(
-    private service: BookService,
-    private router: Router,
-    private route: ActivatedRoute
-  ) {}
-
-  ngOnInit(): void {
-    this.books$ = this.service.getBooks();
-  }
-
-  goToBook(e: IBook) {
-    this.router.navigate([e.isbn], { relativeTo: this.route });
-  }
-}
+export class BookComponent {}

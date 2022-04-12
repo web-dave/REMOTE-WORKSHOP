@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutComponent } from './about/about.component';
-import { BookComponent } from './book/book.component';
-import { DetailsComponent } from './book/details/details.component';
 
 const routes: Routes = [
   {
@@ -12,19 +9,11 @@ const routes: Routes = [
   },
   {
     path: 'books',
-    component: BookComponent,
-  },
-  {
-    path: 'books/:isbn',
-    component: DetailsComponent,
-  },
-  {
-    path: 'about',
-    component: AboutComponent,
+    loadChildren: () => import('./book/book.module').then((m) => m.BookModule),
   },
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { enableTracing: false })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

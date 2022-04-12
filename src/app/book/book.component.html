@@ -1,11 +1,2 @@
-<app-search [(searchTerm)]="searchTerm"></app-search>
-<app-book-card
-  [content]="book"
-  (bookSelected)="goToBook($event)"
-  *ngFor="let book of books$ | async | bookSearch: searchTerm"
-></app-book-card>
-<!-- <app-book-card
-  [content]="book"
-  (bookSelected)="goToBook($event)"
-  *ngFor="let book of books$ | asyncBookSearch: searchTerm | async"
-></app-book-card> -->
+<h2>Welcome to 📕🐒</h2>
+<router-outlet></router-outlet>
