@@ -16,7 +16,19 @@ import { IBook } from 'src/models/book.interface';
   styleUrls: ['./book-card.component.scss'],
 })
 export class BookCardComponent implements OnInit, AfterViewChecked {
-  @Input() content: IBook = { title: '', author: '', abstract: '' };
+  @Input() content: IBook = {
+    title: '',
+    author: '',
+    abstract: '',
+    cover: '',
+    id: '',
+    isbn: '',
+    numPages: 0,
+    price: '',
+    publisher: '',
+    subtitle: '',
+    userId: 0,
+  };
   @Output() bookSelected = new EventEmitter<IBook>();
   customStyles = {
     backgroundColor: 'hotpink',

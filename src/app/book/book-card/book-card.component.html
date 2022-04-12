@@ -1,9 +1,11 @@
-<h3>{{ content.title }}</h3>
-<h4>{{ content.author }}</h4>
-<button (click)="handleEvent($event)">Details</button>
-<p [style]="customStyles">
-  {{ content.abstract }}
-</p>
+<ng-container *ngIf="content">
+  <h3>{{ content.title }}</h3>
+  <h4>{{ content.author }}</h4>
+  <button (click)="handleEvent($event)">Details</button>
+  <p [style]="customStyles">
+    {{ content.abstract }}
+  </p>
+</ng-container>
 
 <!-- <pre>
   {{ content | json }}
