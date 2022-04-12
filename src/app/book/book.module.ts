@@ -4,6 +4,7 @@ import { BookCardComponent } from './book-card/book-card.component';
 import { BookComponent } from './book.component';
 import { SearchComponent } from './search/search.component';
 import { BookSearchPipe } from './shared/book-search.pipe';
+import { AsyncBookSearchPipe } from './shared/async-book-search.pipe';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import { BookSearchPipe } from './shared/book-search.pipe';
     BookSearchPipe,
     SearchComponent,
     BookComponent,
+    AsyncBookSearchPipe,
   ],
   imports: [CommonModule],
   exports: [BookComponent],
