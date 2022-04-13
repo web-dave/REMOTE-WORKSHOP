@@ -24,4 +24,7 @@ export class BookService {
   getBook(isbn: string): Observable<IBook> {
     return this.http.get<IBook>('http://localhost:4730/books/' + isbn);
   }
+  createBook(b: IBook): Observable<IBook> {
+    return this.http.post<IBook>('http://localhost:4730/books', b);
+  }
 }

@@ -9,7 +9,8 @@ import { DetailsComponent } from './details/details.component';
 import { ListComponent } from './list/list.component';
 import { BookRoutingModule } from './book-routing.module';
 import { EditComponent } from './edit/edit.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NewComponent } from './new/new.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +22,9 @@ import { FormsModule } from '@angular/forms';
     DetailsComponent,
     ListComponent,
     EditComponent,
+    NewComponent,
   ],
-  imports: [CommonModule, BookRoutingModule, FormsModule],
+  imports: [CommonModule, BookRoutingModule, FormsModule, ReactiveFormsModule],
   exports: [BookComponent],
 })
 export class BookModule {}

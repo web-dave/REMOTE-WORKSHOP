@@ -4,6 +4,7 @@ import { BookComponent } from './book.component';
 import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
 import { ListComponent } from './list/list.component';
+import { NewComponent } from './new/new.component';
 import { StayGuard } from './stay.guard';
 
 const routes: Routes = [
@@ -14,6 +15,10 @@ const routes: Routes = [
       {
         path: '',
         component: ListComponent,
+      },
+      {
+        path: 'new',
+        component: NewComponent,
       },
       {
         path: ':isbn',

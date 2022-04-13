@@ -1,0 +1,14 @@
+<form [formGroup]="form" (ngSubmit)="save()">
+  <div *ngFor="let field of formFields">
+    <label [for]="field">{{ field | uppercase }}:</label><br />
+    <input type="text" [formControlName]="field" /><span
+      *ngIf="form.get(field)?.hasError('required')"
+      >⚡</span
+    ><span
+      *ngIf="form.get(field)?.hasError('duplicate')"
+      >{{form.get(field)?.errors?.['duplicate']}}</span
+    >
+  </div>
+  <button type="submit" [disabled]="!form.valid">💾</button>
+</form>
+<!-- <pre>{{ form.value | json }}</pre> -->
