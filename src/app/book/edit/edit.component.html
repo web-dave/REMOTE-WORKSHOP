@@ -1,6 +1,32 @@
-<form #form="ngForm" *ngIf="book$ | async as book">
-  <input type="text" [(ngModel)]="book.title" name="title" #title="ngModel" />
-  <pre>{{ form.value | json }}</pre>
+<form #form="ngForm" *ngIf="book$ | async as book" (ngSubmit)="save(book)">
+  <label for="title">Title:</label>
+  <input
+    type="text"
+    [(ngModel)]="book.title"
+    name="title"
+    #title="ngModel"
+    required
+  />
+  <span *ngIf="title.errors?.required">⛈️</span>
   <hr />
-  <pre>{{ book | json }}</pre>
+  <label for="author">Author:</label>
+  <input
+    type="text"
+    [(ngModel)]="book.author"
+    name="author"
+    #author="ngModel"
+    required
+  />
+  <span *ngIf="author.errors?.required">⛈️</span>
+  <hr />
+  <label for="abstract">abstract:</label>
+  <input
+    type="text"
+    [(ngModel)]="book.abstract"
+    name="abstract"
+    #abstract="ngModel"
+    required
+  />
+  <span *ngIf="abstract.errors?.required">⛈️</span>
+  <button type="submit">Save</button>
 </form>

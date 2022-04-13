@@ -19,4 +19,7 @@ export class EditComponent implements OnInit {
       switchMap((data) => this.service.getBook(data['isbn']))
     );
   }
+  save(b: IBook) {
+    console.log(b);
+  }
 }
