@@ -1,1 +1,10 @@
-<pre>{{ book$ | async | json }}</pre>
+<ng-container *ngIf="book$ | async as book">
+  <h3>{{ book.title }}</h3>
+  <img [src]="book.cover" [alt]="book.title" />
+  <h4>{{ book.subtitle }}</h4>
+  <p>{{ book.abstract }}</p>
+  <hr />
+  <span>{{ book.publisher }}</span> |
+  <span>{{ book.price }}</span>
+  <h5>{{ book.author }}</h5>
+</ng-container>
