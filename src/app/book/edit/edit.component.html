@@ -1,0 +1,6 @@
+<form #form="ngForm" *ngIf="book$ | async as book">
+  <input type="text" [(ngModel)]="book.title" name="title" #title="ngModel" />
+  <pre>{{ form.value | json }}</pre>
+  <hr />
+  <pre>{{ book | json }}</pre>
+</form>

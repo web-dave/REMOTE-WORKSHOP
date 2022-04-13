@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BookComponent } from './book.component';
 import { DetailsComponent } from './details/details.component';
+import { EditComponent } from './edit/edit.component';
 import { ListComponent } from './list/list.component';
 import { StayGuard } from './stay.guard';
 
@@ -18,6 +19,10 @@ const routes: Routes = [
         path: ':isbn',
         component: DetailsComponent,
         canDeactivate: [StayGuard],
+      },
+      {
+        path: ':isbn/edit',
+        component: EditComponent,
       },
     ],
   },
