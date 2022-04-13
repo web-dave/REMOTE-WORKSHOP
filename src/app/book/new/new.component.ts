@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+} from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -11,11 +16,16 @@ import { BookService } from '../book.service';
   selector: 'app-new',
   templateUrl: './new.component.html',
   styleUrls: ['./new.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NewComponent {
   form: FormGroup;
   formFields: string[] = [];
-  constructor(private formBuilder: FormBuilder, private service: BookService) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private service: BookService,
+    private cdr: ChangeDetectorRef
+  ) {
     this.form = this.formBuilder.group({
       title: ['', [Validators.required]],
       author: [''],
@@ -31,6 +41,7 @@ export class NewComponent {
     });
     // this.form.addControl('foo', new FormControl(''));
     this.formFields = Object.keys(this.form.controls);
+    this.cdr.markForCheck();
   }
 
   save(): void {
