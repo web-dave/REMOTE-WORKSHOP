@@ -11,6 +11,7 @@ import { BookRoutingModule } from './book-routing.module';
 import { EditComponent } from './edit/edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewComponent } from './new/new.component';
+import { WaschbenzinPipe } from './shared/waschbenzin.pipe';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { NewComponent } from './new/new.component';
     ListComponent,
     EditComponent,
     NewComponent,
+    WaschbenzinPipe,
   ],
   imports: [CommonModule, BookRoutingModule, FormsModule, ReactiveFormsModule],
   exports: [BookComponent],

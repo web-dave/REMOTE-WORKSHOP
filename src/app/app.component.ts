@@ -7,4 +7,5 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class AppComponent {
   show = true;
+  start = 1650393589816;
 }

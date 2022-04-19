@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { map, delay, tap } from 'rxjs/operators';
+import { map, delay, tap, shareReplay } from 'rxjs/operators';
 import { IBook } from 'src/models/book.interface';
 
 @Injectable({
@@ -18,6 +18,7 @@ export class BookService {
           return data;
         })
       )
+      // shareReplay()
     );
   }
 

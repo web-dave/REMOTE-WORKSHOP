@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 import { AboutModule } from './about/about.module';
 import { AppRoutingModule } from './app-routing.module';
 import { NavigationComponent } from './navigation/navigation.component';
+import { TmGonePipe } from './tm-gone.pipe';
 @NgModule({
-  declarations: [AppComponent, NavigationComponent],
+  declarations: [AppComponent, NavigationComponent, TmGonePipe],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, AboutModule],
   providers: [],
   bootstrap: [AppComponent],
