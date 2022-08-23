@@ -20,4 +20,8 @@ export class BookCardComponent implements OnInit {
     //   };
     // }, 2000);
   }
+
+  pong(e: MouseEvent) {
+    console.log(e);
+  }
 }
