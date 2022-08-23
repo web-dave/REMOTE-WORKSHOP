@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bookmankey-client';
+  book = {
+    title: 'Moby Click',
+    author: 'Hurz',
+    abstract: 'Click, puff, paff...',
+  };
 }
