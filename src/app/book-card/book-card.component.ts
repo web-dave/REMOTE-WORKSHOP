@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { IBook } from '../book.interface';
 
 @Component({
   selector: 'app-book-card',
@@ -6,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./book-card.component.scss'],
 })
 export class BookCardComponent implements OnInit {
-  @Input() content: any;
+  @Input() content: IBook = { title: '', author: '', abstract: '' };
   myStyle = {
     color: 'pink',
   };

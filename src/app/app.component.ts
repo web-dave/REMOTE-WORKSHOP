@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IBook } from './book.interface';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bookmankey-client';
-  book = {
+  book: IBook = {
     title: 'Moby Click',
     author: 'Hurz',
     abstract: 'Click, puff, paff...',
