@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IBook } from '../book.interface';
 
 @Component({
@@ -8,20 +8,16 @@ import { IBook } from '../book.interface';
 })
 export class BookCardComponent implements OnInit {
   @Input() content: IBook = { title: '', author: '', abstract: '' };
+  @Output() detailClick = new EventEmitter<IBook>();
   myStyle = {
-    color: 'pink',
+    color: 'orange',
   };
   constructor() {}
 
-  ngOnInit(): void {
-    // setTimeout(() => {
-    //   this.myStyle = {
-    //     color: 'red',
-    //   };
-    // }, 2000);
-  }
+  ngOnInit(): void {}
 
   pong(e: MouseEvent) {
-    console.log(e);
+    // console.log(e);
+    this.detailClick.emit(this.content);
   }
 }

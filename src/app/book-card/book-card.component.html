@@ -3,13 +3,7 @@
   {{ content.title }}
 </h3>
 <h4 [style]="myStyle">{{ content.author }}</h4>
-<button
-  (click)="pong($event)"
-  (mouseenter)="pong($event)"
-  (mouseleave)="pong($event)"
->
-  details
-</button>
+<button (click)="pong($event)">details</button>
 <p class="abstract">
   {{ content.abstract }}
 </p>

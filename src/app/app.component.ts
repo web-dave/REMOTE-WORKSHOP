@@ -13,4 +13,8 @@ export class AppComponent {
     author: 'Hurz',
     abstract: 'Click, puff, paff...',
   };
+
+  goToDetails(b: IBook) {
+    console.table(b);
+  }
 }
