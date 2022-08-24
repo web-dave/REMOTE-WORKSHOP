@@ -9,6 +9,7 @@ import { IBook } from '../book.interface';
 export class BookCardComponent implements OnInit {
   @Input() content: IBook | undefined; // = { title: '', author: '', abstract: '' };
   @Output() detailClick = new EventEmitter<IBook>();
+  foo = [];
   myStyle = {
     color: 'orange',
   };

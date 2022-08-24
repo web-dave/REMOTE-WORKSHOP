@@ -8,6 +8,7 @@ import { IBook } from './book.interface';
 })
 export class AppComponent {
   title = 'bookmankey-client';
+  searchStr = '';
   books: IBook[] = [
     {
       title: 'Moby Click',
@@ -31,7 +32,24 @@ export class AppComponent {
     },
   ];
 
+  constructor() {
+    // setInterval(() => {
+    //   this.searchStr = 'why';
+    //   // console.log(this.searchStr);
+    // }, 1500);
+  }
+  transform(books: IBook[] = [], searchTerm: string = ''): IBook[] {
+    console.log('METHOD', searchTerm);
+    return books.filter((book) =>
+      book.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }
+
   goToDetails(b: IBook) {
     console.table(b);
+  }
+
+  updateSearchString(e: Event) {
+    this.searchStr = (e.target as HTMLInputElement).value;
   }
 }
