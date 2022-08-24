@@ -1,0 +1,14 @@
+<div class="list">
+  <input
+    type="text"
+    (input)="updateSearchString($event)"
+    placeholder="search"
+    [value]="searchStr"
+  />
+  <hr />
+  <app-book-card
+    [content]="book"
+    (detailClick)="goToDetails($event)"
+    *ngFor="let book of books | filterBooks: searchStr"
+  ></app-book-card>
+</div>
