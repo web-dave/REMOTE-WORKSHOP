@@ -7,8 +7,10 @@ import { IBook } from './book.interface';
 export class FilterBooksPipe implements PipeTransform {
   transform(books: IBook[] = [], searchTerm: string = ''): IBook[] {
     console.log('PIPE', searchTerm);
-    return books.filter((book) =>
-      book.title.toLowerCase().includes(searchTerm.toLowerCase())
+    return books.filter(
+      (book) =>
+        book.author?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        book.title?.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }
 }
