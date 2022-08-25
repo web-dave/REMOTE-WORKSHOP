@@ -1,4 +1,5 @@
-<div class="list">
+<button (click)="show = !show">show</button>
+<div class="list" *ngIf="show">
   <input
     type="text"
     (input)="updateSearchString($event)"
@@ -6,9 +7,10 @@
     [value]="searchStr"
   />
   <hr />
+
   <app-book-card
     [content]="book"
     (detailClick)="goToDetails($event)"
-    *ngFor="let book of books | filterBooks: searchStr"
+    *ngFor="let book of books$ | async | filterBooks: searchStr"
   ></app-book-card>
 </div>
