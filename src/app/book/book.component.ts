@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IBook } from './book.interface';
 import { BookService } from './book.service';
 import { Observable } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-book',
@@ -13,10 +14,15 @@ export class BookComponent {
   show = true;
   books$: Observable<IBook[]> = this.service.getAll();
 
-  constructor(private service: BookService) {}
+  constructor(
+    private service: BookService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   goToDetails(b: IBook) {
-    console.table(b);
+    this.router.navigate([b.isbn], { relativeTo: this.route });
+    // this.router.navigate(['details', b.isbn], { relativeTo: this.route });
   }
 
   updateSearchString(e: Event) {
