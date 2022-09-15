@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Book, IBook } from './book.interface';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Conet client!';
-  book = {
+  book: Book = {
     title: 'How to win friends',
     author: 'Dale Carnegie',
     abstract: 'In this book ...',
