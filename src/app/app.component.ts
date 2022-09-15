@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Conet client!';
+  book = {
+    title: 'How to win friends',
+    author: 'Dale Carnegie',
+    abstract: 'In this book ...',
+  };
 }
