@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Book, IBook } from '../book.interface';
 
 @Component({
@@ -8,6 +8,7 @@ import { Book, IBook } from '../book.interface';
 })
 export class BookCardComponent implements OnInit {
   @Input() content = new Book();
+  @Output() detailClick = new EventEmitter<Book>();
   // @Input() content: IBook | undefined; // = { abstract: '', author: '', title: '' };
   myStyle = {
     color: '#7845ff',
@@ -20,5 +21,6 @@ export class BookCardComponent implements OnInit {
   handleDetailClick(e: MouseEvent) {
     e.preventDefault();
     console.log(e);
+    this.detailClick.emit(this.content);
   }
 }

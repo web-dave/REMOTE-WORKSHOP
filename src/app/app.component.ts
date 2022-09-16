@@ -13,4 +13,7 @@ export class AppComponent {
     author: 'Dale Carnegie',
     abstract: 'In this book ...',
   };
+  navigateToDetails(b: Book) {
+    console.table(b);
+  }
 }
