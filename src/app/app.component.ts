@@ -8,6 +8,7 @@ import { Book, IBook } from './book.interface';
 })
 export class AppComponent {
   title = 'Conet client!';
+  searchTerm: string = '';
   books: Book[] = [
     {
       title: 'How to win friends',
@@ -27,5 +28,9 @@ export class AppComponent {
   ];
   navigateToDetails(b: Book) {
     console.table(b);
+  }
+
+  updateSearchTerm(input: Event) {
+    this.searchTerm = (input.target as HTMLInputElement).value;
   }
 }

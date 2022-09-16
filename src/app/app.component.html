@@ -1,7 +1,8 @@
+<input (input)="updateSearchTerm($event)" />
 <app-book-card
   [content]="book"
   (detailClick)="navigateToDetails($event)"
-  *ngFor="let book of books"
+  *ngFor="let book of books | filterBooks: searchTerm"
 ></app-book-card>
 
 <!-- <template id="myTemplate">
