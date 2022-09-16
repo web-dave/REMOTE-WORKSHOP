@@ -1,4 +1,9 @@
 <app-book-card
   [content]="book"
   (detailClick)="navigateToDetails($event)"
+  *ngFor="let book of books"
 ></app-book-card>
+
+<!-- <template id="myTemplate">
+  <h1>Hallo</h1>
+</template> -->

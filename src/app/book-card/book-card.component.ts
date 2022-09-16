@@ -7,9 +7,9 @@ import { Book, IBook } from '../book.interface';
   styleUrls: ['./book-card.component.scss'],
 })
 export class BookCardComponent implements OnInit {
-  @Input() content = new Book();
+  // @Input() content = new Book();
   @Output() detailClick = new EventEmitter<Book>();
-  // @Input() content: IBook | undefined; // = { abstract: '', author: '', title: '' };
+  @Input() content: IBook | undefined; // = { abstract: '', author: '', title: '' };
   myStyle = {
     color: '#7845ff',
   };

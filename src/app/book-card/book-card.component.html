@@ -1,5 +1,7 @@
-<h3>{{ content.title }}</h3>
-<h4>{{ content.author }}</h4>
+<ng-container *ngIf="content">
+  <h3>{{ content.title }}</h3>
+  <h4>{{ content.author }}</h4>
 
-<a href="#" (click)="handleDetailClick($event)">Details</a>
-<p [style]="myStyle">{{ content.abstract }}</p>
+  <a href="#" (click)="handleDetailClick($event)">Details</a>
+  <p [style]="myStyle">{{ content.abstract }}</p>
+</ng-container>
