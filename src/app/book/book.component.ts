@@ -11,10 +11,21 @@ export class BookComponent implements OnInit {
   searchTerm: string = '';
   books: IBook[] = [];
   constructor(private service: BookService) {
-    this.books = this.service.getBooks();
+    this.service.getBooks().subscribe({
+      next: (data) => (this.books = data),
+      error: (err) => {
+        this.books = [];
+      },
+    });
+    this.service.getBooks().subscribe((data) => (this.books = data));
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // setInterval(() => {
+    //   this.searchTerm = 'why';
+    //   console.log('ping');
+    // }, 1500);
+  }
   navigateToDetails(b: IBook) {
     console.table(b);
   }

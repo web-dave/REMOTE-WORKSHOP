@@ -1,4 +1,8 @@
 import { Injectable } from '@angular/core';
+
+import { of, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 import { IBook } from './book.interface';
 
 @Injectable({
@@ -22,9 +26,14 @@ export class BookService {
       abstract: "START WITH WHY shows that the leaders who've ...",
     },
   ];
+
+  bookComponentBooks = this.getBooksSynchron();
   constructor() {}
 
-  public getBooks(): IBook[] {
+  public getBooks(): Observable<IBook[]> {
+    return of(this.books);
+  }
+  public getBooksSynchron(): IBook[] {
     return this.books;
   }
 }
