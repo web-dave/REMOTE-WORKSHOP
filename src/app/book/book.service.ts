@@ -1,7 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { of, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 import { IBook } from './book.interface';
 
@@ -28,10 +28,11 @@ export class BookService {
   ];
 
   bookComponentBooks = this.getBooksSynchron();
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   public getBooks(): Observable<IBook[]> {
-    return of(this.books);
+    return this.http.get<IBook[]>('http://localhost:4730/books');
+    // return of(this.books);
   }
   public getBooksSynchron(): IBook[] {
     return this.books;
