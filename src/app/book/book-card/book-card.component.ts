@@ -19,7 +19,7 @@ export class BookCardComponent implements OnInit {
   ngOnInit(): void {}
 
   handleDetailClick(e: MouseEvent) {
-    e.preventDefault();
+    // e.preventDefault();
     console.log(e);
     this.detailClick.emit(this.content);
   }
