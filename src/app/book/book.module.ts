@@ -4,7 +4,7 @@ import { BookComponent } from './book.component';
 import { FilterBooksPipe } from './filter-books.pipe';
 import { BookCardComponent } from './book-card/book-card.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
-import { RouterModule } from '@angular/router';
+import { BookRoutingModule } from './book-routing.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import { RouterModule } from '@angular/router';
     BookCardComponent,
     BookDetailComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, BookRoutingModule],
   exports: [BookComponent],
 })
 export class BookModule {}
