@@ -2,6 +2,7 @@
   <h3>{{ content.title }}</h3>
   <h4>{{ content.author }}</h4>
 
-  <a href="" (click)="handleDetailClick($event)">Details</a>
+  <a [routerLink]="['detail', content.isbn]">Details (routerLink)</a>
+  <a href="#" (click)="handleDetailClick($event)">Details (navigate)</a>
   <p [style]="myStyle">{{ content.abstract }}</p>
 </ng-container>
