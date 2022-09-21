@@ -6,6 +6,12 @@
     >⚡</span
   ><br />
   <input type="text" formControlName="isbn" /><br />
+  <input type="text" formControlName="cover" />
+  <span
+    [title]="form.controls.cover.errors | json"
+    *ngIf="form.controls.cover.invalid"
+    >⚡</span
+  ><br />
   <button (click)="addCtrl()">➕</button>
   <button type="submit" [disabled]="!form.valid">Save</button>
 </form>
