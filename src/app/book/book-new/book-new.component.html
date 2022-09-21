@@ -1,0 +1,11 @@
+<form [formGroup]="form" (ngSubmit)="save()">
+  <input type="text" formControlName="title" />
+  <span
+    [title]="form.controls.title.errors | json"
+    *ngIf="form.controls.title.invalid"
+    >⚡</span
+  ><br />
+  <input type="text" formControlName="isbn" /><br />
+  <button (click)="addCtrl()">➕</button>
+  <button type="submit" [disabled]="!form.valid">Save</button>
+</form>
