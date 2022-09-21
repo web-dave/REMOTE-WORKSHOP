@@ -1,0 +1,16 @@
+<div *ngIf="book$ | async as book">
+  {{ book.title }}
+
+  <form #form="ngForm">
+    <input
+      type="text"
+      [(ngModel)]="book.title"
+      name="title"
+      #title="ngModel"
+      required
+      minlength="6"
+    />
+
+    {{ title.valid }}
+  </form>
+</div>

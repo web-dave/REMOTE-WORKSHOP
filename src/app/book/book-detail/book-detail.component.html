@@ -4,4 +4,5 @@
   <h5>{{ book.author }}</h5>
   <img [src]="book.cover" [alt]="book.title" />
   <p>{{ book.abstract }}</p>
+  <a [routerLink]="['../..', 'edit', book.isbn]">🖊️</a>
 </div>
