@@ -1,6 +1,11 @@
 <h3>Welcome to my Books 🦄</h3>
+<hr />
+<!-- <h1>🦆 {{ books.title }}</h1> -->
+<hr />
 <nav>
   <a routerLink="">Liste</a> |
   <a routerLink="new">Neues Buch</a>
 </nav>
 <router-outlet></router-outlet>
+
+<app-book-list [error]="true"></app-book-list>

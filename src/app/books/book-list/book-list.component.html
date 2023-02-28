@@ -1,1 +1,18 @@
+<!-- <input [value]="error" (mouseenter)="hi($event)" (input)="hi($event)" /> -->
+
 <p>book-list works!</p>
+<table *ngIf="!error; else loadingError">
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Preis</th>
+  </tr>
+  <tr
+    app-book-preview
+    *ngFor="let data of books"
+    [book]="data"
+    (bookselected)="hi($event)"
+  ></tr>
+</table>
+
+<ng-template #loadingError> Oh dang! no books! :( </ng-template>
