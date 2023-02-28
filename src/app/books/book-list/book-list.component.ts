@@ -1,4 +1,5 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
+import { IBook } from '../book.interface';
 import { BookService } from '../book.service';
 
 @Component({
@@ -9,11 +10,11 @@ import { BookService } from '../book.service';
 export class BookListComponent implements OnInit {
   bookService = inject(BookService);
 
-  books: any = [];
+  books: IBook[] = [];
   @Input()
   error = false;
 
-  hi(e: any) {
+  hi(e: IBook) {
     console.log(e);
     //   this.error = Boolean((e.target as HTMLInputElement).value);
   }
