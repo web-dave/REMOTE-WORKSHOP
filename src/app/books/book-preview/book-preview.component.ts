@@ -7,6 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class BookPreviewComponent {
   @Input() book: any;
+  foo: string[] | undefined;
   @Output() bookselected = new EventEmitter();
 
   ping() {
