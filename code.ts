@@ -7,3 +7,26 @@ const jan = {
 };
 
 jan.walk();
+
+===================================
+// async code exec
+[0,1,2,3,e,5]
+
+heap 
+e
+
+_____________________________________________________
+
+click
+call fn
+socket start 
+socket msg
+data verarbeiten
+socket msg
+data verarbeiten
+socket msg
+data verarbeiten
+socket msg
+socket msg
+data verarbeiten
+

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,7 +10,7 @@ import { AboutModule } from './about/about.module';
 
 @NgModule({
   declarations: [AppComponent, NavComponent],
-  imports: [BrowserModule, AppRoutingModule, AboutModule],
+  imports: [BrowserModule, AppRoutingModule, AboutModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
