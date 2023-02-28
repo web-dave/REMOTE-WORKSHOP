@@ -17,4 +17,7 @@ export class BookService {
     //   (books) => books.filter((book) => book.author)
     // )
   }
+  getBook(isbn: string) {
+    return this.http.get<IBook>(this.root + '/' + isbn);
+  }
 }

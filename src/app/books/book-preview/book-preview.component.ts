@@ -8,7 +8,7 @@ import { IBook } from '../book.interface';
 })
 export class BookPreviewComponent {
   @Input() book: IBook | undefined;
-  foo: string[] | undefined;
+  foo!: string[];
   @Output() bookselected = new EventEmitter<IBook>();
 
   ping() {

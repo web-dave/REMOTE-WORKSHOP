@@ -1,4 +1,5 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IBook } from '../book.interface';
 import { BookService } from '../book.service';
 
@@ -8,7 +9,9 @@ import { BookService } from '../book.service';
   styleUrls: ['./book-list.component.scss'],
 })
 export class BookListComponent implements OnInit {
-  bookService = inject(BookService);
+  private bookService = inject(BookService);
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
 
   books: IBook[] = [];
   @Input()
@@ -16,10 +19,12 @@ export class BookListComponent implements OnInit {
 
   hi(e: IBook) {
     console.log(e);
+    this.router.navigate([e.isbn], { relativeTo: this.route });
     //   this.error = Boolean((e.target as HTMLInputElement).value);
   }
 
   ngOnInit() {
+    console.log(this.route);
     const foo = {
       value: 'bar',
     };
