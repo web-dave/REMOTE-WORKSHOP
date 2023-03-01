@@ -1,5 +1,5 @@
 <div *ngIf="book">
-  <header>{{ book.title }}</header>
+  <header>{{ book.title }} <a routerLink="edit">🖊️</a></header>
   <img [src]="book.cover" [alt]="book.title" />
   <p>{{ book.abstract }}</p>
   <p>{{ book.publisher }}</p>

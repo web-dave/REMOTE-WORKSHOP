@@ -6,10 +6,18 @@ import { BooksComponent } from './books.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { BookPreviewComponent } from './book-preview/book-preview.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { BookEditComponent } from './book-edit/book-edit.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [BooksComponent, BookListComponent, BookPreviewComponent, BookDetailsComponent],
-  imports: [CommonModule, BooksRoutingModule],
+  declarations: [
+    BooksComponent,
+    BookListComponent,
+    BookPreviewComponent,
+    BookDetailsComponent,
+    BookEditComponent,
+  ],
+  imports: [CommonModule, BooksRoutingModule, FormsModule],
   exports: [BooksComponent],
 })
 export class BooksModule {}
