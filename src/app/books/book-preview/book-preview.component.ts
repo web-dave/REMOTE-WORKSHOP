@@ -5,6 +5,7 @@ import { IBook } from '../book.interface';
   selector: 'tr[app-book-preview]',
   templateUrl: './book-preview.component.html',
   styleUrls: ['./book-preview.component.scss'],
+  standalone: true,
 })
 export class BookPreviewComponent {
   @Input() book: IBook | undefined;

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   {
@@ -10,8 +9,8 @@ const routes: Routes = [
   },
   {
     path: 'books',
-    loadChildren: () =>
-      import('./books/books.module').then((datei) => datei.BooksModule),
+    loadComponent: () =>
+      import('./books/books.component').then((datei) => datei.BooksComponent),
   },
   // {
   //   path: ':username',

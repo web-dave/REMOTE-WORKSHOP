@@ -7,6 +7,7 @@ import { BookService } from '../book.service';
   selector: 'app-book-list',
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.scss'],
+  standalone: true,
 })
 export class BookListComponent implements OnInit {
   private bookService = inject(BookService);

@@ -7,6 +7,7 @@ import { BookService } from '../book.service';
   selector: 'app-book-edit',
   templateUrl: './book-edit.component.html',
   styleUrls: ['./book-edit.component.scss'],
+  standalone: true,
 })
 export class BookEditComponent implements OnInit {
   book: IBook | undefined;

@@ -11,15 +11,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BookNewComponent } from './book-new/book-new.component';
 
 @NgModule({
-  declarations: [
+  imports: [
+    CommonModule,
+    BooksRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     BooksComponent,
-    BookListComponent,
-    BookPreviewComponent,
-    BookDetailsComponent,
-    BookEditComponent,
-    BookNewComponent,
   ],
-  imports: [CommonModule, BooksRoutingModule, FormsModule, ReactiveFormsModule],
   exports: [BooksComponent],
 })
 export class BooksModule {}

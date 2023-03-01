@@ -20,6 +20,7 @@ export type IForm<T> = {
   selector: 'app-book-new',
   templateUrl: './book-new.component.html',
   styleUrls: ['./book-new.component.scss'],
+  standalone: true,
 })
 export class BookNewComponent {
   private bookServie = inject(BookService);

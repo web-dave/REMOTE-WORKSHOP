@@ -7,6 +7,7 @@ import { BookService } from '../book.service';
   selector: 'app-book-details',
   templateUrl: './book-details.component.html',
   styleUrls: ['./book-details.component.scss'],
+  standalone: true,
 })
 export class BookDetailsComponent {
   book: IBook | undefined;
