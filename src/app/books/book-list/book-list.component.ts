@@ -1,5 +1,6 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { IBook } from '../book.interface';
 import { BookService } from '../book.service';
 
@@ -14,6 +15,8 @@ export class BookListComponent implements OnInit {
   private router = inject(Router);
 
   books: IBook[] = [];
+  books$: Observable<IBook[]> = this.bookService.getAll();
+
   @Input()
   error = false;
 
@@ -34,13 +37,13 @@ export class BookListComponent implements OnInit {
     // Only next signal
     // this.bookService.getAll().subscribe((data) => (this.books = data));
 
-    this.bookService.getAll().subscribe({
-      next: (data) => (this.books = data),
-      error: (err) => {
-        console.error(err);
-        this.error = true;
-      },
-      complete: () => console.info('DONE!!'),
-    });
+    // this.bookService.getAll().subscribe({
+    //   next: (data) => (this.books = data),
+    //   error: (err) => {
+    //     console.error(err);
+    //     this.error = true;
+    //   },
+    //   complete: () => console.info('DONE!!'),
+    // });
   }
 }

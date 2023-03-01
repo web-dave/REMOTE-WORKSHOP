@@ -9,7 +9,7 @@
   </tr>
   <tr
     app-book-preview
-    *ngFor="let data of books"
+    *ngFor="let data of books$ | async"
     [book]="data"
     (bookselected)="hi($event)"
   ></tr>

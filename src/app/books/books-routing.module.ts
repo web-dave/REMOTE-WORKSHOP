@@ -42,7 +42,7 @@ const routes: Routes = [
       {
         path: ':isbn',
         component: BookDetailsComponent,
-        canActivate: [enterGuard],
+        // canActivate: [enterGuard],
       },
       {
         path: ':isbn/edit',

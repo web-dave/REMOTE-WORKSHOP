@@ -9,6 +9,7 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { BookEditComponent } from './book-edit/book-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BookNewComponent } from './book-new/book-new.component';
+import { PricePipe } from './price.pipe';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { BookNewComponent } from './book-new/book-new.component';
     BookDetailsComponent,
     BookEditComponent,
     BookNewComponent,
+    PricePipe,
   ],
   imports: [CommonModule, BooksRoutingModule, FormsModule, ReactiveFormsModule],
   exports: [BooksComponent],

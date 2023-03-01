@@ -2,7 +2,12 @@
   <header>{{ book.title }} <a routerLink="edit">🖊️</a></header>
   <img [src]="book.cover" [alt]="book.title" />
   <p>{{ book.abstract }}</p>
-  <p>{{ book.publisher }}</p>
-  <footer>{{ book.author }}</footer>
+  <p>
+    {{ book.publisher }} <span>{{ format(book.price) }}</span>
+  </p>
+  <footer>
+    {{ book.author }} <span>{{ book.price | price }}</span>
+    <span>{{ book.price | currency : "EUR" }}</span>
+  </footer>
   <!-- <app-book-edit [book]="book"></app-book-edit> -->
 </div>
