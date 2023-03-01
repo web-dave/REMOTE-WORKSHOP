@@ -24,4 +24,22 @@ export class BookService {
     const url = `${this.root}/${book.isbn}`;
     return this.http.put<IBook>(url, book);
   }
+
+  createBook(book: IBook) {
+    return this.http.post<IBook>(this.root, book);
+  }
+
+  getBookKeys() {
+    return {
+      title: '',
+      subtitle: '',
+      isbn: '',
+      abstract: '',
+      numPages: 0,
+      author: '',
+      publisher: '',
+      price: '',
+      cover: '',
+    };
+  }
 }

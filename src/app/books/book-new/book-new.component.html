@@ -1,0 +1,35 @@
+<form [formGroup]="bookForm" (ngSubmit)="saveBook()">
+  <div class="row" *ngFor="let key of keys">
+    <label class="col-4 col-form-label" [for]="key">{{ key }}</label>
+    <div class="col-8">
+      <input
+        class="form-group"
+        type="text"
+        [id]="key"
+        [formControlName]="key"
+      />
+      <div [hidden]="!bookForm.get(key)?.hasError('required')">
+        Enter a title
+      </div>
+    </div>
+  </div>
+
+  <pre>{{ bookForm.value | json }}</pre>
+  <!-- <div class="form-group">
+    <label for="isbn">ISBN</label>
+    <input type="text" id="isbn" formControlName="isbn" />
+    <div [hidden]="!bookForm.controls.['isbn'].hasError('minlength')">
+      Not a valid ISBN
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Name:</label>
+    <input type="text" formControlName="publisher" />
+  </div>
+  <div class="form-group">
+    <label>Abstract:</label>
+    <input type="text" formControlName="abstract" />
+  </div> -->
+
+  <button type="submit" [disabled]="!bookForm.valid">Save</button>
+</form>
