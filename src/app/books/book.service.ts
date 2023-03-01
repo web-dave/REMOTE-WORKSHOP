@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 
-import { filter, Observable } from 'rxjs';
+import { filter, map, Observable } from 'rxjs';
 import { IBook } from './book.interface';
 
 @Injectable({
@@ -12,10 +12,9 @@ export class BookService {
   private http = inject(HttpClient);
 
   getAll(): Observable<IBook[]> {
-    return this.http.get<IBook[]>(this.root).pipe();
-    // filter(
-    //   (books) => books.filter((book) => book.author)
-    // )
+    return this.http
+      .get<IBook[]>(this.root)
+      .pipe(map((books) => books.filter((book) => book.author)));
   }
   getBook(isbn: string) {
     return this.http.get<IBook>(this.root + '/' + isbn);
