@@ -13,11 +13,15 @@ ul {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    background-color: rgb(245, 248, 46);
+    color: #111;
     &:hover:not(.active) {
       background-color: #111;
+      color: rgb(245, 248, 46);
     }
     &.active {
       background-color: rgb(250, 33, 141);
+      color: #fff;
     }
   }
 }
