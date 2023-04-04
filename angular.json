@@ -29,6 +29,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "angular-workshop",
               "budgets": [
                 {
                   "type": "initial",
