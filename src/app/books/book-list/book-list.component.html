@@ -12,6 +12,7 @@
       app-tr
       [book]="book"
       *ngFor="let book of books; let i = index; even as e; odd as o"
+      (pong)="goToBook($event)"
     >
       <!-- <app-tr [book]="book"></app-tr> -->
     </tr>
@@ -22,16 +23,16 @@
   </tbody>
 </table>
 
-<ul>
-  <!-- <li
+<!-- <ul>
+  <li
     [id]="'book_' + i"
     [class]="e ? 'even' : 'odd'"
     *ngFor="let book of books; let i = index; even as e; odd as o"
     [innerText]="book.title"
-  ></li> -->
+  ></li>
   <app-book-preview
     [book]="book"
     *ngFor="let book of books"
     (bookselected)="goToBook($event)"
   ></app-book-preview>
-</ul>
+</ul> -->

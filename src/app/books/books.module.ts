@@ -6,9 +6,10 @@ import { BooksComponent } from './books.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { BookPreviewComponent } from './book-preview/book-preview.component';
 import { TrComponent } from './tr/tr.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 @NgModule({
-  declarations: [BooksComponent, BookListComponent, BookPreviewComponent, TrComponent],
+  declarations: [BooksComponent, BookListComponent, BookPreviewComponent, TrComponent, BookDetailsComponent],
   exports: [BooksComponent],
   imports: [CommonModule, BooksRoutingModule],
 })

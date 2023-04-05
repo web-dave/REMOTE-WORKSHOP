@@ -1,2 +1,4 @@
 <td class="row">{{ book.title }}</td>
-<td class="row"><button [innerText]="book.isbn"></button></td>
+<td class="row">
+  <button [innerText]="book.isbn" (click)="selectThisBook($event)"></button>
+</td>
