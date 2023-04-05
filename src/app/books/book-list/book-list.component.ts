@@ -19,4 +19,8 @@ export class BookListComponent implements OnInit {
     foo$.subscribe((data) => (this.books = data));
     foo$.subscribe((data) => (this.books = data));
   }
+
+  goToBook(b: any) {
+    console.log(b);
+  }
 }

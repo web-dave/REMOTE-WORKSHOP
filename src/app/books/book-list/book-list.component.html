@@ -1,8 +1,37 @@
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Link</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Foo</td>
+      <td>Bar</td>
+    </tr>
+    <tr
+      app-tr
+      [book]="book"
+      *ngFor="let book of books; let i = index; even as e; odd as o"
+    >
+      <!-- <app-tr [book]="book"></app-tr> -->
+    </tr>
+    <!-- <tr *ngFor="let book of books; let i = index; even as e; odd as o">
+      <td>{{ book.title }}</td>
+      <td><button [innerText]="book.isbn"></button></td>
+    </tr> -->
+  </tbody>
+</table>
+
 <ul>
-  <li
+  <!-- <li
     [id]="'book_' + i"
     [class]="e ? 'even' : 'odd'"
     *ngFor="let book of books; let i = index; even as e; odd as o"
     [innerText]="book.title"
-  ></li>
+  ></li> -->
+  <app-book-preview
+    [book]="book"
+    *ngFor="let book of books"
+    (bookselected)="goToBook($event)"
+  ></app-book-preview>
 </ul>
