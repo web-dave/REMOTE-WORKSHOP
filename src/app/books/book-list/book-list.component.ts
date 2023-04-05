@@ -1,4 +1,5 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
+import { IBook } from '../book.interface';
 import { BookService } from '../book.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { BookService } from '../book.service';
   styleUrls: ['./book-list.component.scss'],
 })
 export class BookListComponent implements OnInit {
-  books: any;
+  books: IBook[] = [];
   private service = inject(BookService);
 
   ngOnInit(): void {
@@ -20,7 +21,7 @@ export class BookListComponent implements OnInit {
     foo$.subscribe((data) => (this.books = data));
   }
 
-  goToBook(b: any) {
+  goToBook(b: IBook) {
     console.log(b);
   }
 }

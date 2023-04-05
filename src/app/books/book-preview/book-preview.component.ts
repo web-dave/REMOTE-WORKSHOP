@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { IBook } from '../book.interface';
 
 @Component({
   selector: 'app-book-preview',
@@ -6,10 +7,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./book-preview.component.scss'],
 })
 export class BookPreviewComponent {
-  @Input() book: any;
-  @Output() bookselected = new EventEmitter();
+  @Input() book: IBook | undefined;
+  @Output() bookselected = new EventEmitter<IBook>();
 
-  selectThisBook(e: any) {
+  selectThisBook(e: Event) {
     console.log(e);
     this.bookselected.emit(this.book);
   }

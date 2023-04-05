@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { IBook } from '../book.interface';
 
 @Component({
   selector: 'tr[app-tr]',
@@ -6,5 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./tr.component.scss'],
 })
 export class TrComponent {
-  @Input() book: any;
+  @Input() book!: IBook;
 }

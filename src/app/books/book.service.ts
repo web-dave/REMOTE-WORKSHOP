@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable, shareReplay } from 'rxjs';
+import { IBook } from './book.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -8,9 +9,9 @@ import { Observable, shareReplay } from 'rxjs';
 export class BookService {
   private http = inject(HttpClient);
 
-  getBooks(): Observable<any> {
+  getBooks(): Observable<IBook[]> {
     return this.http
-      .get<any>('http://localhost:4730/books')
+      .get<IBook[]>('http://localhost:4730/books')
       .pipe(shareReplay(1));
   }
 }
