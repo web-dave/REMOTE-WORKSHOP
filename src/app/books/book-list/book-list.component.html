@@ -1,3 +1,8 @@
 <ul>
-  <li *ngFor="let book of books">{{ book.title }}</li>
+  <li
+    [id]="'book_' + i"
+    [class]="e ? 'even' : 'odd'"
+    *ngFor="let book of books; let i = index; even as e; odd as o"
+    [innerText]="book.title"
+  ></li>
 </ul>
