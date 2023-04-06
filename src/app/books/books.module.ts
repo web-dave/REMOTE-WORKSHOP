@@ -8,6 +8,8 @@ import { BookPreviewComponent } from './book-preview/book-preview.component';
 import { TrComponent } from './tr/tr.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { MorsePipe } from './morse.pipe';
+import { BookEditComponent } from './book-edit/book-edit.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,8 +19,9 @@ import { MorsePipe } from './morse.pipe';
     TrComponent,
     BookDetailsComponent,
     MorsePipe,
+    BookEditComponent,
   ],
   exports: [BooksComponent],
-  imports: [CommonModule, BooksRoutingModule],
+  imports: [CommonModule, BooksRoutingModule, FormsModule],
 })
 export class BooksModule {}

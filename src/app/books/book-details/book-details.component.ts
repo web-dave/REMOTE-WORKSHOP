@@ -13,22 +13,23 @@ export class BookDetailsComponent {
   private route = inject(ActivatedRoute);
   private service = inject(BookService);
   book$ = this.service.getBook(this.route.snapshot.params['isbn']);
-  // book: IBook | undefined;
+  book: IBook | undefined;
   // sub: any;
   baz = 'baz';
-  // ngOnInit() {
-  // setInterval(() => {
-  //   this.baz = 'i bims';
-  // }, 1500);
-  // this.sub = this.service
-  //   .getBook(this.route.snapshot.params['isbn'])
-  //   .subscribe((response) => (this.book = response));
-  // this.route.params.subscribe((data) => {
-  //   this.service
-  //     .getBook(data['isbn'])
-  //     .subscribe((response) => (this.book = response));
-  // });
-  // }
+  ngOnInit() {
+    // setInterval(() => {
+    //   this.baz = 'i bims';
+    // }, 1500);
+
+    // this.sub = this.service
+    //   .getBook(this.route.snapshot.params['isbn'])
+    //   .subscribe((response) => (this.book = response));
+
+    this.route.params.subscribe((data) => {
+      this.book$ = this.service.getBook(data['isbn']);
+      // .subscribe((response) => (this.book = response));
+    });
+  }
   // ngOnDestroy(): void {
   //   console.log('Destroi');
 
