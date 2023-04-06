@@ -7,9 +7,17 @@ import { BookListComponent } from './book-list/book-list.component';
 import { BookPreviewComponent } from './book-preview/book-preview.component';
 import { TrComponent } from './tr/tr.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { MorsePipe } from './morse.pipe';
 
 @NgModule({
-  declarations: [BooksComponent, BookListComponent, BookPreviewComponent, TrComponent, BookDetailsComponent],
+  declarations: [
+    BooksComponent,
+    BookListComponent,
+    BookPreviewComponent,
+    TrComponent,
+    BookDetailsComponent,
+    MorsePipe,
+  ],
   exports: [BooksComponent],
   imports: [CommonModule, BooksRoutingModule],
 })

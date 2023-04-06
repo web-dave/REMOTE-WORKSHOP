@@ -1,7 +1,11 @@
-<div *ngIf="book">
+{{ baz | morse }}
+<hr />
+{{ morse(baz) }}
+<hr />
+<div *ngIf="book$ | async as book">
   <header>{{ book.title }}</header>
   <img [src]="book.cover" [alt]="book.title" />
-  <p>{{ book.abstract }}</p>
+  <p>{{ book.abstract | lowercase | morse : false : true }}</p>
   <p>{{ book.publisher }}</p>
   <footer>{{ book.author }}</footer>
 </div>
