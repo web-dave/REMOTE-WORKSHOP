@@ -19,11 +19,16 @@ import { BookNewComponent } from './book-new/book-new.component';
     BookPreviewComponent,
     TrComponent,
     BookDetailsComponent,
-    MorsePipe,
     BookEditComponent,
     BookNewComponent,
   ],
   exports: [BooksComponent],
-  imports: [CommonModule, BooksRoutingModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    BooksRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MorsePipe,
+  ],
 })
 export class BooksModule {}

@@ -8,6 +8,7 @@ enum klaus {
 
 @Pipe({
   name: 'morse',
+  standalone: true,
 })
 export class MorsePipe implements PipeTransform {
   klaus: klaus | false = false;
