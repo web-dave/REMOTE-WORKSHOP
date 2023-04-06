@@ -1,0 +1,19 @@
+<h3>Create a Book</h3>
+<form [formGroup]="newBookForm" (ngSubmit)="saveBook()">
+  <div *ngFor="let k of keys">
+    <label [for]="k">{{ k | titlecase }}</label>
+    <input type="text" [formControlName]="k" />
+    <ng-container *ngIf="k === 'subtitle'">
+      <span *ngIf="newBookForm.controls[k].hasError('klaus')">
+        {{ newBookForm.controls[k].errors?.["klaus"] }}
+      </span>
+    </ng-container>
+  </div>
+  <!-- <div>
+    <label for="isbn">ISBN</label>
+    <input type="text" formControlName="isbn" />
+  </div> -->
+  <button type="submit">Save</button>
+</form>
+
+<pre>{{ newBookForm.getRawValue() | json }}</pre>
