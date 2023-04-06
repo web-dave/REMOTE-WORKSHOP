@@ -6,7 +6,9 @@
   <header>{{ book.title }}</header>
   <img [src]="book.cover" [alt]="book.title" />
   <p>{{ book.abstract | lowercase | morse : false : true }}</p>
-  <p>{{ book.publisher }}</p>
+  <p>
+    {{ book.publisher }} <strong>({{ book.price }})</strong>
+  </p>
   <footer>{{ book.author }}</footer>
   <a routerLink="edit">✏️</a>
 </div>

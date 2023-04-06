@@ -16,7 +16,7 @@
     </div>
   </div>
   <div class="form-group">
-    <label for="price">Title</label>
+    <label for="price">Price</label>
     <input
       type="text"
       id="price"
@@ -26,7 +26,7 @@
       #price="ngModel"
     />
     <div [hidden]="!price.errors?.['required'] || price.pristine">
-      Enter a Title
+      Set a Price
     </div>
   </div>
   <div>

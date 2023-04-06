@@ -11,10 +11,17 @@ export class BookService {
 
   getBooks(): Observable<IBook[]> {
     return this.http.get<IBook[]>('http://localhost:4730/books');
-    // .pipe(shareReplay(1));
   }
 
   getBook(isbn: string): Observable<IBook> {
     return this.http.get<IBook>('http://localhost:4730/books/' + isbn);
+  }
+
+  updateBook(b: IBook): Observable<IBook> {
+    return this.http.put<IBook>('http://localhost:4730/books/' + b.isbn, b);
+  }
+
+  createBook(b: IBook): Observable<IBook> {
+    return this.http.post<IBook>('http://localhost:4730/books/', b);
   }
 }
