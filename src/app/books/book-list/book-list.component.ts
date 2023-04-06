@@ -9,28 +9,30 @@ import { BookService } from '../book.service';
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.scss'],
 })
-export class BookListComponent implements OnInit, OnDestroy {
-  sub: Subscription | undefined;
-  books: IBook[] = [];
+export class BookListComponent {
   private service = inject(BookService);
   private router = inject(Router);
   private route = inject(ActivatedRoute);
-  ngOnInit(): void {
-    // const foo$ = this.service.getBooks();
-
-    this.sub = this.service.getBooks().subscribe((data) => (this.books = data));
-    // foo$.subscribe((data) => (this.books = data));
-    // foo$.subscribe((data) => (this.books = data));
-    // foo$.subscribe((data) => (this.books = data));
-    // foo$.subscribe((data) => (this.books = data));
-  }
+  books$ = this.service.getBooks();
 
   goToBook(b: IBook) {
     console.log(b);
     this.router.navigate([b.isbn], { relativeTo: this.route });
   }
 
-  ngOnDestroy(): void {
-    this.sub?.unsubscribe();
-  }
+  // sub: Subscription | undefined;
+  // books: IBook[] = [];
+  // ngOnInit(): void {
+  //   // const foo$ = this.service.getBooks();
+
+  //   // this.sub = this.service.getBooks().subscribe((data) => (this.books = data));
+  //   // foo$.subscribe((data) => (this.books = data));
+  //   // foo$.subscribe((data) => (this.books = data));
+  //   // foo$.subscribe((data) => (this.books = data));
+  //   // foo$.subscribe((data) => (this.books = data));
+  // }
+
+  // ngOnDestroy(): void {
+  //   this.sub?.unsubscribe();
+  // }
 }

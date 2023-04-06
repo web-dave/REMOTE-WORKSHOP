@@ -11,7 +11,7 @@
     <tr
       app-tr
       [book]="book"
-      *ngFor="let book of books; let i = index; even as e; odd as o"
+      *ngFor="let book of books$ | async; let i = index; even as e; odd as o"
       (pong)="goToBook($event)"
     >
       <!-- <app-tr [book]="book"></app-tr> -->

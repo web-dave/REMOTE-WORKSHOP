@@ -10,9 +10,8 @@ export class BookService {
   private http = inject(HttpClient);
 
   getBooks(): Observable<IBook[]> {
-    return this.http
-      .get<IBook[]>('http://localhost:4730/books')
-      .pipe(shareReplay(1));
+    return this.http.get<IBook[]>('http://localhost:4730/books');
+    // .pipe(shareReplay(1));
   }
 
   getBook(isbn: string): Observable<IBook> {
