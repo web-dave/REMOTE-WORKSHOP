@@ -1,5 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { BookService } from '../book.service';
+import { IBook } from '../book.interface';
 
 @Component({
   selector: 'app-book-list',
@@ -8,7 +9,7 @@ import { BookService } from '../book.service';
 })
 export class BookListComponent implements OnInit {
   private service = inject(BookService);
-  books: any[] = [];
+  books: IBook[] = [];
 
   ngOnInit(): void {
     this.service.getAll().subscribe({
@@ -17,7 +18,7 @@ export class BookListComponent implements OnInit {
     });
   }
 
-  gotoBook(e: string) {
+  gotoBook(e: IBook) {
     console.log(e);
   }
 }
