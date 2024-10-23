@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { BookService } from '../book.service';
 import { IBook } from '../book.interface';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-list',
@@ -9,6 +10,9 @@ import { IBook } from '../book.interface';
 })
 export class BookListComponent implements OnInit {
   private service = inject(BookService);
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
+
   books: IBook[] = [];
 
   ngOnInit(): void {
@@ -20,5 +24,6 @@ export class BookListComponent implements OnInit {
 
   gotoBook(e: IBook) {
     console.log(e);
+    this.router.navigate([e.isbn], { relativeTo: this.route });
   }
 }
