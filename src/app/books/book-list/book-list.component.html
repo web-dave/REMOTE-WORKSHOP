@@ -1,1 +1,22 @@
-<p>book-list works!</p>
+<h3>Book List</h3>
+<!-- 
+@if(books){
+    <ul>
+    @for(book of books;track book.isbn){
+      $index
+      $even
+      $odd
+      $count
+      $first
+      $last
+        <li>{{ book.title }}</li>
+    } @empty{
+     }
+    </ul>
+} 
+    @else{
+    }
+    -->
+<ul *ngIf="books">
+  <li *ngFor="let book of books">{{ book.title }}</li>
+</ul>
