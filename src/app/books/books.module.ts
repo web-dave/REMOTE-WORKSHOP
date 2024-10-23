@@ -10,4 +10,4 @@ import { BookListComponent } from './book-list/book-list.component';
   exports: [BooksComponent],
   imports: [CommonModule, BooksRoutingModule],
 })
-export class BooksModule {}
+export default class BooksModule {}
