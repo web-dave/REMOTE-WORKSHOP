@@ -18,5 +18,14 @@
     }
     -->
 <ul *ngIf="books">
-  <li *ngFor="let book of books">{{ book.title }}</li>
+  <app-book-preview
+    *ngFor="let itm of books"
+    [book]="itm"
+    (bookSelected)="gotoBook($event)"
+  ></app-book-preview>
+  <!-- <li *ngFor="let book of books">
+    {{ book.title }}
+
+    <img [src]="book.cover" height="30" />
+  </li> -->
 </ul>
