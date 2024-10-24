@@ -1,3 +1,5 @@
 <div *ngIf="book">
   <div *ngFor="let key of keys">{{ key }}</div>
+  <div>{{ transform(foo) }}</div>
+  <div>{{ foo | escape }}</div>
 </div>
