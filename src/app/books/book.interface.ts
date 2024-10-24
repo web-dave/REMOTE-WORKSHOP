@@ -8,5 +8,4 @@ export interface IBook {
   publisher: string;
   price: string;
   cover: string;
-  read?: () => string;
 }

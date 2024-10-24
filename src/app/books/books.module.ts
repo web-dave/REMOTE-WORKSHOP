@@ -8,7 +8,8 @@ import { BookPreviewComponent } from './book-preview/book-preview.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { EscapePipe } from './escape.pipe';
 import { BookEditComponent } from './book-edit/book-edit.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BookNewComponent } from './book-new/book-new.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +19,9 @@ import { FormsModule } from '@angular/forms';
     BookDetailsComponent,
     EscapePipe,
     BookEditComponent,
+    BookNewComponent,
   ],
   exports: [BooksComponent],
-  imports: [CommonModule, BooksRoutingModule, FormsModule],
+  imports: [CommonModule, BooksRoutingModule, FormsModule, ReactiveFormsModule],
 })
 export default class BooksModule {}

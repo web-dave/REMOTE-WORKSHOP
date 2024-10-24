@@ -23,4 +23,8 @@ export class BookService {
   updateOne(book: IBook): Observable<IBook> {
     return this.http.put<IBook>(this.restRoot + '/' + book.isbn, book);
   }
+
+  createOne(book: IBook): Observable<IBook> {
+    return this.http.post<IBook>(this.restRoot, book);
+  }
 }
