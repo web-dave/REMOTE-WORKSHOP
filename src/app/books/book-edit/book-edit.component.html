@@ -1,0 +1,9 @@
+<!-- {{ book$ | async | json }} -->
+<div *ngIf="book$ | async as book">
+  <form #editForm="ngForm" (ngSubmit)="save(book)">
+    <input type="text" name="title" [(ngModel)]="book.title" />
+    <button type="submit" [disabled]="!editForm.valid">Save</button>
+  </form>
+
+  {{ book | json }}
+</div>

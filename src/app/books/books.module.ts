@@ -7,6 +7,8 @@ import { BookListComponent } from './book-list/book-list.component';
 import { BookPreviewComponent } from './book-preview/book-preview.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { EscapePipe } from './escape.pipe';
+import { BookEditComponent } from './book-edit/book-edit.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,8 +17,9 @@ import { EscapePipe } from './escape.pipe';
     BookPreviewComponent,
     BookDetailsComponent,
     EscapePipe,
+    BookEditComponent,
   ],
   exports: [BooksComponent],
-  imports: [CommonModule, BooksRoutingModule],
+  imports: [CommonModule, BooksRoutingModule, FormsModule],
 })
 export default class BooksModule {}
