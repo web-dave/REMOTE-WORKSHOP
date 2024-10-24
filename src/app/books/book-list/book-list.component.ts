@@ -8,19 +8,11 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.scss'],
 })
-export class BookListComponent implements OnInit {
+export class BookListComponent {
   private service = inject(BookService);
+  books$ = this.service.getAll();
   private router = inject(Router);
   private route = inject(ActivatedRoute);
-
-  books: IBook[] = [];
-
-  ngOnInit(): void {
-    this.service.getAll().subscribe({
-      next: (data) => (this.books = data),
-      complete: () => console.log('Done'),
-    });
-  }
 
   gotoBook(e: IBook) {
     console.log(e);

@@ -2,7 +2,7 @@
 <!-- 
 @if(books){
     <ul>
-    @for(book of books;track book.isbn){
+    @for(book of books$ | async;track book.isbn){
       $index
       $even
       $odd
@@ -17,9 +17,9 @@
     @else{
     }
     -->
-<ul *ngIf="books">
+<ul>
   <app-book-preview
-    *ngFor="let itm of books"
+    *ngFor="let itm of books$ | async"
     [book]="itm"
     (bookSelected)="gotoBook($event)"
   ></app-book-preview>
